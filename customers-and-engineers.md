@@ -44,7 +44,7 @@ use to communicate about reliability in the context of a software system. Let's
 start off by taking a deeper dive into transactions and resources, then get into
 that shared language.
 
-## Transactions
+## [Transactions](#transactions)
 
 A transaction is a thing that happens in your system which results in some
 useful work, usually crossing some sort of boundary. Transactions can be very
@@ -185,7 +185,7 @@ boundaries, but allow us to isolate potentially untrustworthy data. We need to
 be able to spatially visualize transactions as they fan-out or fan-in, without
 becoming unmanageably complex and difficult to read.
 
-## Resources
+## [Resources](#resources)
 
 If transactions are things that do something, resources are what they consume to
 power that work. A resource is durable -- it survives many transactions. Like a
@@ -335,7 +335,7 @@ How do we make sense of this? How can we define reliability, quality, or even a
 basic understanding of what we require from each party involved in this whole
 mess? Our answer is in a couple of short acronyms.
 
-## SLI's and SLO's.
+## [SLI's and SLO's.](#sli-slo)
 
 The Service Level Indicator (SLI) and Service Level Objective (SLO) have been
 popularized by the Site Reliability Engineering (SRE) movement, a practice which
