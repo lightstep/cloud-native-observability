@@ -33,6 +33,7 @@ Welcome, to **The Complete Guide to Cloud-Native Observability**.
     * [Transactions](./customers-and-engineers.md#transactions)
     * [Resources](./customers-and-engineers.md#resources)
     * [SLI's and SLO's](./customers-and-engineers.md#sli-slo)
+* [The Anatomy of Observability](./anatomy-of-observability.md)
 
 ---
 
