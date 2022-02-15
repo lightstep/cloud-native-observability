@@ -97,6 +97,10 @@ chapter, because thankfully, this solution exists.
 
 ## Persistence
 
-
+### Is everything an event?
 
 ## Workflows
+
+### Monitoring and Alerting
+
+### Investigating Change and Difference
