@@ -97,10 +97,184 @@ chapter, because thankfully, this solution exists.
 
 ## Persistence
 
+We've come a long way from the "record everything and let God sort it out"
+mindset of the 2010's. It's true that storage is [cheaper than
+ever(https://blog.dshr.org/2012/02/cloud-storage-pricing-history.html)
+], the increase in data volume easily negates the reduction in persistence
+costs. Additionally, an increasingly complex legal and regulatory environment --
+that only promises to get more complex -- demands sophistication in the question
+of not only what data we store, but where we store it, how we store it, and how
+we attribute changes to it.
+
+This makes persistence a key consideration in application and system telemetry
+data, and there's a lot to consider. Observability systems tend to suffer from a
+mismatch between reads and writes; This is to say, the way that telemetry is
+presented to the storage system is orthogonal to the way you'd like to read it
+back from that system. When we ingest these signals, they're often batched and
+mixed with a wide variety of metadata that covers multiple transactions or
+resources; When we read them back, we usually only want information about one.
+The individual data points are very small, but queries that you'd be interested
+in might aggregate hundreds of thousands of points to return a result. This
+presents many challenges in the design and operation of a production
+observability system; You can't just take something off the shelf and go, it
+really does require a lot of thought and effort!
+
+The solutions we've seen to this problem usually involve highly specialized
+databases for different signals. Projects such as
+[Cortex](https://cortexmetrics.io), [OpenSearch](https://opensearch.org), and
+[Cassandra](https://cassandra.apache.org/_/index.html) are all popular
+timeseries or NoSQL databases for storing metrics, logs, and traces,
+respectively. This fails a test, though -- observability is about more than just
+having these signals available, it's about the _integration_ and _correlation_
+between these signals. Keeping all of our data in separate buckets with
+incompatible query languages and APIs (or tortorously adapting metrics queries
+to support traces, or trying to use SQL as a lingua franca...) means that we're
+tilting our head and squinting at observability without really grasping the
+point. 
+
+What observability requires is specialized persistance that natively supports
+multiple types of telemetry, but also allows that telemetry data to be queried
+in a consistent fashion regardless of type. This allows us to perform actual
+cross-cutting queries and comparisons between signals, have a shared syntax to
+express aggregations, groups, filters, and so forth, and reduce the cost and
+maintenence burden required to operate the storage layer. This cost shouldn't
+just be thought of as 'how much am I spending to keep this stuff operating',
+either -- controlling how much you're spending to keep this data around, and
+figuring out how useful it is, is key.
+
 ### Is everything an event?
+
+There's an alternative theory about telemetry that agrees in spirit with the
+above sentiment. In summary, it claims that metrics, logs, and spans can all be
+generally classified as "events" -- a generic form of telemetry that represents
+some distinct, observable occurence in your system. The storage layer for these
+events can then be optimized for one type of data, rather than for each
+individually.
+
+While spiritually similar to the argument above, the 'everything is an event'
+position presents challenges at the persistence layer. Certain signals contain
+implicit expectations about persistence that need to be addressed -- for
+example, most people wouldn't expect a single trace to arbitrarily be kept for
+over a month, but they would expect a time series to be (albeit in a compacted
+form). Metrics exist in an extremely compact format to begin with; 'Upscaling'
+them into an event adds metadata that effectively increases their storage cost
+over time. This also adds a burden to users, who need to pay special attention
+to how much data is being emitted to the storage engine, as it doesn't
+necessarily know about the different types of signals and can't make intelligent
+decisions about how or where to store things (i.e., moving
+useful-but-not-critical log or trace data to cool storage rather than keeping it
+warm)
+
+In practice, rather than trying to genericize telemetry signals, it can be more
+helpful to think of the association between them via shared context at the point
+of emission -- we don't need to turn everything into an event if we're able to
+ensure that each signal is emitted with the appropriate attributes to ensure we
+can correlate them later across types. This is something we'll touch on, again,
+in the next chapter -- stay tuned.
 
 ## Workflows
 
+Once you've got some data, and you've got it stored, you wanna do something with
+it. Traditionally this has meant you pull up some sort of query builder or data
+explorer and start running queries, then pulling those queries into a dashboard.
+A link to that dashboard would be added to a runbook or wiki page, and it'd
+mostly sit there unneeded until trouble came a-callin', at which point whoever
+was on call would open it up and realize half the graphs didn't work any more
+because someone renamed the metrics last month and didn't update the charts.
+
+Realistically, everything we've talked about before accretes into some sort of
+actual benefit over the existing approach. Observability isn't about simply
+swapping out your storage layer with something smarter, or improving the data
+quality of your telemetry signals, even if both of those are necessary for it.
+Think back to our earlier chapter, where we talked about transactions and
+resources -- our goal is to improve our ability to understand change by
+monitoring critical signals. The workflows that observability enables are what
+actually helps us do just that!
+
 ### Monitoring and Alerting
 
+The practice of monitoring looks a lot like what we described in the
+introduction to this section -- a bunch of dashboards that attempt to record
+signals that describe every failure state of a system which you need to peruse
+and interpret to determine why things failed. There's a lot of problems with
+this; As I mentioned before, our underlying data can shift and change leading to
+dashboard staleness, or a lack of breadth in the dashboard itself requires us
+to click between multiple tabs and systems in order to get a complete picture of
+the system state.
+
+A better way to think of this is to change what we're actually monitoring.
+Dashboards full of visualizations over a collection of timeseries shiouldn't be
+our primary interaction method with our observability tools. Monitoring needs to
+very explicitly connect resource and transaction health with the business goals
+that they support. This changes our frame of reference to monitoring our SLOs
+rather than our specific SLIs.
+
+SLOs provide a convenient framework for alerting, as well. Traditionally, we'd
+know 'something's wrong' because we would set alerts on our indicators
+around things like 'is this value too high or low for too long', or 'is the change from
+period to period greater than some arbitrary threshold'. While this can tell you
+there's smoke, it doesn't necessarily tell you if there's fire. What's worse in
+my mind is that these kind of alerts don't actually give you any sort of context
+or rationale for how they're impacting things. Service owners can set up a
+variety of alerts based on assumptions that were made in the past that may not
+have any real connection to how the service is being used today or it's current
+usage patterns. 
+
+SLO-based alerting, though, solves this problem neatly. An SLO is already going
+to have a built-in threshold at which you should start caring about it (when
+you're in violation) _and_ logically consistent breakpoints at which you should
+be notified about changes (when you're burning down, when you've run out of
+error budget, when you're not using enough budget, etc.) that don't really
+change based on the context of the service you're using. An SLO is an SLO is an
+SLO, after all.
+
+SLO-based monitoring and alerting also can make a huge difference in how teams
+outside of engineering interact with observability and reliability. SLOs are a
+natural way to communicate between engineering and business stakeholders on the
+tradeoffs between feature development and 'reliability engineering', or about
+the benefits of architectural and structural improvements to a codebase.
+Consistent alerting based on SLOs reduces on-call handoff errors and anxiety, as
+there's a consistent set of things you'll be alerted on.
+
+Of course, this is only half of the equation -- once you've been alerted that
+you're burning down an SLO, you gotta figure out _why_. 
+
 ### Investigating Change and Difference
+
+I'm gonna say that there's no outage or incident that ever existed without
+something changing to cause it. Maybe that change wasn't something _you_ did --
+it could be a customer sending malformed payloads, or a dependent service
+suddenly changing its API, or an underlying dependency being updated by a
+well-meaning security team, or an unexpected cloud failure. 
+
+There's two types of change that we should care about -- intentional and
+unintentional. These intentional changes are produced as we develop and push
+code out to our systems. They're the result of our CI/CD process, or dependency
+updates, or changes to our team structure. Observability acts as a flywheel on
+all of these, making us able to move forward more quickly and more safely, by
+ensuring we can identify the results of these deliberate changes. Did we
+actually fix that bug? Are we actually getting more signups? Did we reduce how
+long it takes to load the page? While it's nice to muse about the high-minded
+pursuit of 'data exploration', most of us don't want to become Magellan in order
+to see the effect of merging a PR.
+
+Unintentional changes are more pernicious, but they're equally important to
+understand. Helpfully, the actual process of detecting change works about the
+same for both. What is different about unintentional changes is that our context
+differs greatly. We know when we've deployed code and are watching it roll out;
+We usually have a theory we're trying to prove or disprove. Unintentional change
+happens when we least expect it, from vectors we're unlikely to predict. In
+these cases, we need workflows that are deliberately crafted in to quickly
+present accurate hypotheses, present relevant correlations, and let us compare
+differences in broad system state across arbitrary time windows using a blend of
+telemetry signals.
+
+It's actually very straightforward if you think about it -- the big story about
+observability has a lot more to do with how you think about monitoring than
+anything else. It's not just about storing a bunch of different data, it's not
+just about having traces and metrics and logs, it's not even about just using
+SLOs. The promise of observability is a radically different approach to how you
+interact with your telemetry data -- it turns you from being a statistician into a
+troubleshooter. It democratizes both data, and outcomes, so that everyone
+involved in a software business can understand how software health and business
+outcomes are interrelated.
