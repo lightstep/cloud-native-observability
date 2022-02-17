@@ -36,6 +36,7 @@ Welcome, to **The Complete Guide to Cloud-Native Observability**.
 * [The Anatomy of Observability](./anatomy-of-observability.md)
 * [Telemetry Creation and OpenTelemetry](./telemetry-creation-and-otel.md)
 
+
 ---
 
 ## Contributing
