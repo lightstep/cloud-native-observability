@@ -35,6 +35,11 @@ Welcome, to **The Complete Guide to Cloud-Native Observability**.
     * [SLI's and SLO's](./customers-and-engineers.md#sli-slo)
 * [The Anatomy of Observability](./anatomy-of-observability.md)
 * [Telemetry Creation and OpenTelemetry](./telemetry-creation-and-otel.md)
+* [Effective Monitoring](./effective-monitoring.md)
+* [Effective Investigation](./effective-investigation.md)
+* [Effective SLO's](./effective-slo.md)
+* [Telemetry ROI -- The Elephant in the Room](./telemetry-roi.md)
+* [Organizational Concerns](./organizational-concerns.md)
 
 
 ---
