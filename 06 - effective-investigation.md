@@ -5,14 +5,14 @@
 There's a common aphorism, 'the only constant in life is change'. This is
 especially true of a software system. The magnitude and frequency of these
 changes differ based on a variety of factors both internal (team size,
-composition, development methodology) and external (userbase, seasons,
+composition, development methodology) and external (user base, seasons,
 internet connectivity interruptions) but they all can have an impact.
 Identifying, understanding, and mitigating the adverse impacts of these changes
 is in many ways the 'primary use case' of observability tools.
 
 "That seems obvious", you might say, but you wouldn't know it based on most
 existing monitoring and observability tools. The overwhelming majority of
-existing tools are focused around monitoring and dashboarding, with analytical
+existing tools are focused around monitoring and dashboards, with analytical
 features being difficult to use or of little value. Why is this the case? Three
 reasons come immediately to mind; The difficulty of building good
 general-purpose analytical workflows, inconsistent data quality preventing
@@ -21,7 +21,7 @@ interest amongst engineering staff.
 
 This is why our observability tools all kinda look the same if you turn your
 head and squint; The market forces optimization around 'table stakes' features
-such as query builders and visualizations, creating a dillemma for new entrants
+such as query builders and visualizations, creating a dilemma for new entrants
 -- buyers don't want different unless you can prove that different will save
 them money in the short term. This has lead to a great stagnation, where
 innovation is leashed to short-term financial incentives, benefiting nobody.
@@ -32,7 +32,7 @@ Investigating change should be about more than being able to bang out some
 really good queries or time-window correlations between different telemetry
 types. It calls for general-purpose analytical workflows that let us compare and
 contrast system state across transactions and resources at different times, in
-different conditions, and at infinte layers of granularity in order to quickly
+different conditions, and at infinite layers of granularity in order to quickly
 identify what changed, why it changed, and how it's impacting reliability and performance.
 
 ## Context -- What Ties Everything Together
@@ -52,7 +52,7 @@ themselves a sufficient picture of their internal state to aid in hypothesis
 generation and disqualification, linked together by a shared request context.
 Additionally, point-in-time or periodic measurement of a resource's
 instrumentation carry enough data to allow for effective correlation between
-a specific (or aggregate) transaction and the underlying resource state. 
+a specific (or aggregate) transaction and the underlying resource state.
 
 What's been missing here is a _lingua franca_ for associating transactional and
 resource telemetry together. OpenTelemetry solves this through it's context and
@@ -70,12 +70,12 @@ transaction with an error, we can instead look at a graph of all services
 involved in a transaction and compare those graphs against each other. Resource
 consumption and limits can be overlaid on these graphs, quickly giving us visual
 feedback on resource exhaustion or oversubscription, unusual usage patterns, and
-so forth. 
+so forth.
 
 With enough time, these tools can mature and begin to use machine learning
 technologies to dynamically perform these comparisons and issue suggestions or
 commands to a system, such as modifying throttling for specific clients to ease
-pressure on a congested API that's approaching a SLO violation. 
+pressure on a congested API that's approaching a SLO violation.
 
 ## Guided Analysis vs. Data Exploration
 
@@ -95,7 +95,7 @@ caring for those charts for others. This sucks for everyone -- it silos
 knowledge into the hands of the observability sherpas, who quickly become single
 points of failure when they're unavailable or after they leave a team; It stunts
 growth and velocity as newer or more junior team members are unable to
-self-serve to answer questions. 
+self-serve to answer questions.
 
 We posit that data exploration is necessary but insufficient to satisfy the
 needs of cloud-native observability. It isn't an "either-or", but the primary
@@ -126,7 +126,7 @@ this document, data quality is one of the biggest things holding us back; The
 sort of hand-held analysis mentioned earlier is extremely difficult to achieve
 without significant amounts of instrumentation written in a standardized way,
 embedded throughout a complex application from its earliest days and maintained
-over the course of months or years. 
+over the course of months or years.
 
 There's hope here, in the form of OpenTelemetry -- its semantic conventions
 promise to make it easy to create standardized, high-quality telemetry data. In
@@ -135,7 +135,7 @@ holistic fashion. What is both necessary and sufficient for the systems we want
 to build and run?
 
 To address this, we need to talk about cardinality and tagging. There's a lot
-you can read about cardinality[^cardinalityDef] online, but to breifly review
+you can read about cardinality[^cardinalityDef] online, but to briefly review
 what it is, it's the amount of unique values associated with a single attribute
 on some piece of telemetry data like a log, metric, or span. High cardinality is
 the bane of observability systems, as it either makes things very slow (such as
@@ -144,8 +144,8 @@ expensive (such as metrics 'cardinality explosions' where high cardinality
 attributes can cause 10x, 100x, 1000x, or greater combinations of time-series to
 be created), very expensive (such as the cost for indexes on high-cardinality
 structured logs), and usually all of the above. It's an unavoidable
-complication. It's also a requirement for observability tools, so this tension 
-needs to be relieved somehow. 
+complication. It's also a requirement for observability tools, so this tension
+needs to be relieved somehow.
 
 We'll talk more about it in our section on [telemetry ROI](./telemetry-roi.md),
 but to the end user, cardinality shouldn't really be a concern. What we can do,
@@ -154,7 +154,7 @@ observability pipeline. Traces, logs, and metrics should all contain
 high-cardinality data, but those situations shouldn't ever cause significant
 impacts to your observability system, as it should be able to dynamically adjust
 the rate of collection and intelligently pre-aggregate and bucket data to avoid
-cardinality explosions hitting your actual system and causing failures there. 
+cardinality explosions hitting your actual system and causing failures there.
 
 As we stated earlier, the cornerstone of effective investigation is that you can
 capture as complete of a snapshot of system state as possible, to make it

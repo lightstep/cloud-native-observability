@@ -6,17 +6,17 @@ The previous chapters have more or less spelled out a vision of a new form of
 observability; One that is built around new primitives, like SLO's, and
 supported by centralized, multi-telemetry-aware platforms, built on open source
 observability libraries. We understand this vision might be a hard sell -- after
-all, it doesn't really exist in one place, anywhere. 
+all, it doesn't really exist in one place, anywhere.
 
 This chapter will address a mixed bag of institutional concerns about the
-feasibility of this vision, objections raised by orthodox practicioners, and the
+feasibility of this vision, objections raised by orthodox practitioners, and the
 requirements for successful implementation of cloud-native observability.
 
 ## Combating the 'Three Pillars' ideology
 
 Objects in motion tend to stay in motion, this much is known. The momentum of
 traditional 'three-pillars' monitoring is difficult to understate. An immense,
-incalcuable amount of development time and money have gone into platforms that
+incalculable amount of development time and money have gone into platforms that
 operate based on this ideology. Existing systems, instrumented for discrete
 metrics/tracing/logging experiences, are loathe to change without provable,
 exponential improvements in experience.
@@ -32,7 +32,7 @@ agent to create telemetry and send it off somewhere, you're going to get the
 telemetry that is given to you. OpenTelemetry combats this directly, by
 recognizing the heavily commodified nature of these agents, and moving telemetry
 generation away from proprietary agents, towards direct integrations in
-libraries, managed services, orchestration platforms, and so forth. 
+libraries, managed services, orchestration platforms, and so forth.
 
 As OpenTelemetry becomes a de jure standard due to adoption in cloud-native
 technologies, the newly found freedom of developers to port their data to other
@@ -40,7 +40,7 @@ analytical tools will act as a forcing function on the industry to modify their
 products. This should lead to a period of intense competition and consolidation,
 as new entrants and incumbents alike are no longer 'safe' due to vendor lock-in.
 
-## Build, Buy, and Everything Inbetween
+## Build, Buy, and Everything Between
 
 In this brave new OpenTelemetry world, should you buy or build? The answer
 depends on several factors. If we keep in mind that our telemetry data will be
@@ -76,7 +76,7 @@ provides a minimum guarantee for everyone else, rather than trying to embed in a
 variety of disparate teams and dictate terms. Centralized teams can ensure
 that tooling and processes exist to give service owners easy integration into
 the observability stack, guarantees around data quality, dashboards and SLOs to
-plug into, and overall visibility into the greater system. 
+plug into, and overall visibility into the greater system.
 
 In some organizations, this might be in the office of a CIO or CTO -- in others,
 a cloud center of excellence. Regardless of where it sits, there is a lot of

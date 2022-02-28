@@ -12,7 +12,7 @@ Observability, then, isn't simply defined by the desired end state of
 "understanding a system by its outputs" (because there are no systems that can
 be controlled otherwise; a system without output is one that might as well not
 exist) -- it's a combination of tools and techniques, workflows and products,
-bound together with a shared language of SLI's and SLO's. 
+bound together with a shared language of SLI's and SLO's.
 
 The building blocks of observability are pretty straightforward in this model --
 telemetry, persistence, and workflows; Each building on the other. Let's break
@@ -39,25 +39,25 @@ that telemetry.
 Logging is one of the fundamental activities in programming, insofar as the
 first thing you learn how to program is an application that prints 'Hello,
 World!' to a console. Unfortunately, this is both the first and last
-introduction most devs get to logging in their formal or informal education.
+introduction most developers get to logging in their formal or informal education.
 Logging is "easy" after all, so we don't tend to teach it. When you get into a
 'real job', your application will probably already have a chosen logging library
 that spits out some nicely structured log data (all built before you got there,
 or maintained by people that aren't you) -- you don't really have much of an
-impeteus to do anything more, because everything just works!
+impetus to do anything more, because everything just works!
 
 This is the steady-state default for the overwhelming majority of professional
 software developers; Nobody really ever 'learned' logging because none of us had
 to. Sure, there's outliers -- but logging isn't one of those things that people
-need or want to reinvent every time they crank open their IDE. 
+need or want to reinvent every time they crank open their IDE.
 
 The problem, really, is that logs as we know them aren't a great observability
 primitive. Your logs probably aren't as structured as you like, you might not
 have context information embedded within them, and you never seem to have the
 right log granularity. They're everywhere, though! Nobody is going to accept a
-solution that requires rip-and-replace of the hundreds of thousands of loglines
-in a codebase. Cloud-Native Observability requires _enhancement_ of existing
-loglines into a format that allows them to be blended with other forms of
+solution that requires rip-and-replace of the hundreds of thousands of logging
+statements in a codebase. Cloud-Native Observability requires _enhancement_ of
+existing logs into a format that allows them to be blended with other forms of
 telemetry.
 
 ### Telemetry Quality
@@ -99,7 +99,7 @@ chapter, because thankfully, this solution exists.
 
 We've come a long way from the "record everything and let God sort it out"
 mindset of the 2010's. It's true that storage is [cheaper than
-ever(https://blog.dshr.org/2012/02/cloud-storage-pricing-history.html)
+ever(<https://blog.dshr.org/2012/02/cloud-storage-pricing-history.html>)
 ], the increase in data volume easily negates the reduction in persistence
 costs. Additionally, an increasingly complex legal and regulatory environment --
 that only promises to get more complex -- demands sophistication in the question
@@ -123,21 +123,21 @@ The solutions we've seen to this problem usually involve highly specialized
 databases for different signals. Projects such as
 [Cortex](https://cortexmetrics.io), [OpenSearch](https://opensearch.org), and
 [Cassandra](https://cassandra.apache.org/_/index.html) are all popular
-timeseries or NoSQL databases for storing metrics, logs, and traces,
+time series or NoSQL databases for storing metrics, logs, and traces,
 respectively. This fails a test, though -- observability is about more than just
 having these signals available, it's about the _integration_ and _correlation_
 between these signals. Keeping all of our data in separate buckets with
-incompatible query languages and APIs (or tortorously adapting metrics queries
+incompatible query languages and APIs (or torturously adapting metrics queries
 to support traces, or trying to use SQL as a lingua franca...) means that we're
 tilting our head and squinting at observability without really grasping the
-point. 
+point.
 
 What observability requires is specialized persistance that natively supports
 multiple types of telemetry, but also allows that telemetry data to be queried
 in a consistent fashion regardless of type. This allows us to perform actual
 cross-cutting queries and comparisons between signals, have a shared syntax to
 express aggregations, groups, filters, and so forth, and reduce the cost and
-maintenence burden required to operate the storage layer. This cost shouldn't
+maintenance burden required to operate the storage layer. This cost shouldn't
 just be thought of as 'how much am I spending to keep this stuff operating',
 either -- controlling how much you're spending to keep this data around, and
 figuring out how useful it is, is key.
@@ -147,7 +147,7 @@ figuring out how useful it is, is key.
 There's an alternative theory about telemetry that agrees in spirit with the
 above sentiment. In summary, it claims that metrics, logs, and spans can all be
 generally classified as "events" -- a generic form of telemetry that represents
-some distinct, observable occurence in your system. The storage layer for these
+some distinct, observable occurrence in your system. The storage layer for these
 events can then be optimized for one type of data, rather than for each
 individually.
 
@@ -156,7 +156,7 @@ position presents challenges at the persistence layer. Certain signals contain
 implicit expectations about persistence that need to be addressed -- for
 example, most people wouldn't expect a single trace to arbitrarily be kept for
 over a month, but they would expect a time series to be (albeit in a compacted
-form). Metrics exist in an extremely compact format to begin with; 'Upscaling'
+form). Metrics exist in an extremely compact format to begin with; 'Up-scaling'
 them into an event adds metadata that effectively increases their storage cost
 over time. This also adds a burden to users, who need to pay special attention
 to how much data is being emitted to the storage engine, as it doesn't
@@ -178,7 +178,7 @@ Once you've got some data, and you've got it stored, you wanna do something with
 it. Traditionally this has meant you pull up some sort of query builder or data
 explorer and start running queries, then pulling those queries into a dashboard.
 A link to that dashboard would be added to a runbook or wiki page, and it'd
-mostly sit there unneeded until trouble came a-callin', at which point whoever
+mostly sit there unneeded until trouble came a-calling, at which point whoever
 was on call would open it up and realize half the graphs didn't work any more
 because someone renamed the metrics last month and didn't update the charts.
 
@@ -203,7 +203,7 @@ to click between multiple tabs and systems in order to get a complete picture of
 the system state.
 
 A better way to think of this is to change what we're actually monitoring.
-Dashboards full of visualizations over a collection of timeseries shiouldn't be
+Dashboards full of visualizations over a collection of time series shouldn't be
 our primary interaction method with our observability tools. Monitoring needs to
 very explicitly connect resource and transaction health with the business goals
 that they support. This changes our frame of reference to monitoring our SLOs
@@ -211,14 +211,14 @@ rather than our specific SLIs.
 
 SLOs provide a convenient framework for alerting, as well. Traditionally, we'd
 know 'something's wrong' because we would set alerts on our indicators
-around things like 'is this value too high or low for too long', or 'is the change from
-period to period greater than some arbitrary threshold'. While this can tell you
-there's smoke, it doesn't necessarily tell you if there's fire. What's worse in
-my mind is that these kind of alerts don't actually give you any sort of context
-or rationale for how they're impacting things. Service owners can set up a
-variety of alerts based on assumptions that were made in the past that may not
-have any real connection to how the service is being used today or it's current
-usage patterns. 
+around things like 'is this value too high or low for too long', or 'is the
+change from period to period greater than some arbitrary threshold'. While this
+can tell you there's smoke, it doesn't necessarily tell you if there's fire.
+What's worse in my mind is that these kind of alerts don't actually give you any
+sort of context or rationale for how they're impacting things. Service owners
+can set up a variety of alerts based on assumptions that were made in the past
+that may not have any real connection to how the service is being used today or
+it's current usage patterns.
 
 SLO-based alerting, though, solves this problem neatly. An SLO is already going
 to have a built-in threshold at which you should start caring about it (when
@@ -237,7 +237,7 @@ Consistent alerting based on SLOs reduces on-call handoff errors and anxiety, as
 there's a consistent set of things you'll be alerted on.
 
 Of course, this is only half of the equation -- once you've been alerted that
-you're burning down an SLO, you gotta figure out _why_. 
+you're burning down an SLO, you gotta figure out _why_.
 
 ### Investigating Change and Difference
 
@@ -245,7 +245,7 @@ I'm gonna say that there's no outage or incident that ever existed without
 something changing to cause it. Maybe that change wasn't something _you_ did --
 it could be a customer sending malformed payloads, or a dependent service
 suddenly changing its API, or an underlying dependency being updated by a
-well-meaning security team, or an unexpected cloud failure. 
+well-meaning security team, or an unexpected cloud failure.
 
 There's two types of change that we should care about -- intentional and
 unintentional. These intentional changes are produced as we develop and push
@@ -253,7 +253,7 @@ code out to our systems. They're the result of our CI/CD process, or dependency
 updates, or changes to our team structure. Observability acts as a flywheel on
 all of these, making us able to move forward more quickly and more safely, by
 ensuring we can identify the results of these deliberate changes. Did we
-actually fix that bug? Are we actually getting more signups? Did we reduce how
+actually fix that bug? Are we actually getting more sign-ups? Did we reduce how
 long it takes to load the page? While it's nice to muse about the high-minded
 pursuit of 'data exploration', most of us don't want to become Magellan in order
 to see the effect of merging a PR.
@@ -274,7 +274,7 @@ observability has a lot more to do with how you think about monitoring than
 anything else. It's not just about storing a bunch of different data, it's not
 just about having traces and metrics and logs, it's not even about just using
 SLOs. The promise of observability is a radically different approach to how you
-interact with your telemetry data -- it turns you from being a statistician into a
-troubleshooter. It democratizes both data, and outcomes, so that everyone
+interact with your telemetry data -- it turns you from being a statistician into
+a troubleshooter. It democratizes both data, and outcomes, so that everyone
 involved in a software business can understand how software health and business
 outcomes are interrelated.
