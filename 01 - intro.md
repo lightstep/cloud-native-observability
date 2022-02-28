@@ -24,7 +24,7 @@ Cloud-Native has changed this fundamental maxim, and in doing so, has raised
 some surprising questions and quandries of its own. Let's discuss them now, so
 that we can understand how observability fits into the mix.
 
-## [What's the point of software development, anyway?](#whats-the-point)
+## What's the point of software development, anyway?
 
 Personally, I got into coding because I was an extremely bullied child (this is
 also why I got into musical theater). The ability to make a computer _do
@@ -57,7 +57,7 @@ system. Finally, we want to do all of this on the cheap, so that we're less
 fragile in the face of unexpected disruptions _or_ rapidly evolving technology
 that forces fundamental changes.
 
-## [Why Cloud-Native Matters](#why-it-matters)
+## Why Cloud-Native Matters
 
 If we accept the above premise, then cloud-native becomes a necessity rather
 than a pleasant addendum to the way we think about building software. If
