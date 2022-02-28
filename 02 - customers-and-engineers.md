@@ -86,7 +86,7 @@ granular as the author needs in order to capture the intent of a piece of code.
 > you can zoom out from the entire planet and in to an overview of a few city
 > blocks. Any closer than that is more in the realm of debugging, where you're
 > trying to get very specific and detailed information about program execution.
-> In our Google Maps analogy, that'd be 'street view'. 
+> In our Google Maps analogy, that'd be 'street view'.
 
 Individual spans are useful enough, giving you data and metadata about a
 transaction as it was processed by a service. Attributes such as user
@@ -196,7 +196,7 @@ exhausted. And when they oversaturate, transactions suffer.
 
 We know the symptoms of resource exhaustion well -- database queries that used
 to take moments now taking minutes, login services timing out that are normally
-bulletproof, pods crashlooping in OOMKilled state. 
+bulletproof, pods crashlooping in OOMKilled state.
 
 When we talk about 'resiliency' in the context of cloud-native applications,
 we're often talking implicitly about resources -- ironically enough, this leads
@@ -255,7 +255,7 @@ and/or the impetus for that change isn't necessarily in response to a specific
 user-generated transaction.
 
 > **Ok, but what about...**
-> 
+>
 > An interesting sidebar conversation can be had about systems which do make
 > resource changes in response to explicit user requests, like provisioning a
 > new virtual machine or container in response to uploading some code or
@@ -372,4 +372,3 @@ becomes our way to monitor and understand these changes.
 
 [^sre]: You can read more about Site Reliability Engineering in the [SRE
     Handbook](https://sre.google/sre-book/table-of-contents/) from Google.
-    
