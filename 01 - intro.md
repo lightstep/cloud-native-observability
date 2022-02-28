@@ -65,7 +65,7 @@ software requires money and time, cloud-native can act as a force multiplier to
 one, or both, of these inputs. We can leverage the implicit expertise of other
 developers and engineers who build these platforms, granting us greater
 reliability. Our money is more flexible, as we don't have to invest upfront
-capital in the care and feeding of servers to run our programs. 
+capital in the care and feeding of servers to run our programs.
 
 This benefit is so large that it extends across architectures -- analyst reports
 find [cloud ROI to be over 4x

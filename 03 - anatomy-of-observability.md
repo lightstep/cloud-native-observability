@@ -211,14 +211,14 @@ rather than our specific SLIs.
 
 SLOs provide a convenient framework for alerting, as well. Traditionally, we'd
 know 'something's wrong' because we would set alerts on our indicators
-around things like 'is this value too high or low for too long', or 'is the change from
-period to period greater than some arbitrary threshold'. While this can tell you
-there's smoke, it doesn't necessarily tell you if there's fire. What's worse in
-my mind is that these kind of alerts don't actually give you any sort of context
-or rationale for how they're impacting things. Service owners can set up a
-variety of alerts based on assumptions that were made in the past that may not
-have any real connection to how the service is being used today or it's current
-usage patterns.
+around things like 'is this value too high or low for too long', or 'is the
+change from period to period greater than some arbitrary threshold'. While this
+can tell you there's smoke, it doesn't necessarily tell you if there's fire.
+What's worse in my mind is that these kind of alerts don't actually give you any
+sort of context or rationale for how they're impacting things. Service owners
+can set up a variety of alerts based on assumptions that were made in the past
+that may not have any real connection to how the service is being used today or
+it's current usage patterns.
 
 SLO-based alerting, though, solves this problem neatly. An SLO is already going
 to have a built-in threshold at which you should start caring about it (when
@@ -274,7 +274,7 @@ observability has a lot more to do with how you think about monitoring than
 anything else. It's not just about storing a bunch of different data, it's not
 just about having traces and metrics and logs, it's not even about just using
 SLOs. The promise of observability is a radically different approach to how you
-interact with your telemetry data -- it turns you from being a statistician into a
-troubleshooter. It democratizes both data, and outcomes, so that everyone
+interact with your telemetry data -- it turns you from being a statistician into
+a troubleshooter. It democratizes both data, and outcomes, so that everyone
 involved in a software business can understand how software health and business
 outcomes are interrelated.

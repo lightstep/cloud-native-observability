@@ -51,8 +51,8 @@ OpenTelemetry is the foundation for cloud-native observability practices.
 
 > Further Reading
 >
-> A more complete discussion of OpenTelemetry, along with more depth on the topics in
-> this chapter can be found in [The Future of Observability with
+> A more complete discussion of OpenTelemetry, along with more depth on the
+> topics in this chapter can be found in [The Future of Observability with
 > OpenTelemetry](https://www.oreilly.com/library/view/the-future-of/9781098118433/).
 
 Independent of OpenTelemetry, however, there's the actual act of instrumentation

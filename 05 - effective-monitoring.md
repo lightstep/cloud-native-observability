@@ -40,11 +40,11 @@ response to. For example, the speedometer is something you can control as a
 driver, the tachometer is critical if you're driving a manual transmission, and
 the status of subsystems such as traction control allows you to make an educated
 decision on how to control the vehicle in response to external, uncontrollable
-events (such as the weather or road condition). Kafka[^dashboardOther] dashboards, on the other
-hand, are completely disconnected from the transactions that they are being used
-for. As a shared resource, the dashboard for Kafka will invariably intermingle
-data from multiple transactions, making it difficult to pinpoint failures or
-give actionable feedback to operators on _why_ things are happening.
+events (such as the weather or road condition). Kafka[^dashboardOther]
+dashboards, on the other hand, are completely disconnected from the transactions
+that they are being used for. As a shared resource, the dashboard for Kafka will
+invariably intermingle data from multiple transactions, making it difficult to
+pinpoint failures or give actionable feedback to operators on _why_ things are happening.
 
 This fundamental mismatch isn't something that can necessarily be corrected by
 'better' dashboards, it requires rethinking what we actually use them for, and
