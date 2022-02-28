@@ -34,7 +34,7 @@ the following areas:
 <!-- cspell:disable -->
 
 * [README](./README.md)
-* [Foreward](<./00 - foreward.md>)
+* [Foreward](<./00 - foreword.md>)
 * [Glossary](<./000 - glossary.md>)
 * [Introduction](<./01 - intro.md>)
   * [What's the point of software development, anyway?](<./01 - intro.md#whats-the-point-of-software-development-anyway>)

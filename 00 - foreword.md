@@ -1,6 +1,6 @@
 ![The Complete Guide to Cloud-Native Observability](./img/header.png)
 
-<!-- TODO: Create 00 - Foreward header -->
+<!-- TODO: Create 00 - Foreword header -->
 # The Complete Guide to Cloud-Native Observability
 
 Over the past five years, the concept of
@@ -26,7 +26,7 @@ Welcome, to **The Complete Guide to Cloud-Native Observability**.
 
 Our intention is that the reader is broadly familiar with the current concepts
 and practices around observability, and the jargon associated with it. A
-[glossary](./glossary.md) is provided to aid in definining terms, but we don't
+[glossary](./glossary.md) is provided to aid in defining terms, but we don't
 spend a ton of time going in-depth on concepts like sampling, traces,
 aggregation, etc. The reader is expected to have a passing familiarity with
 these.
@@ -36,6 +36,6 @@ thinking about, and building, observability systems. We don't want to do it
 alone, though, and we don't think that it's helpful for us to prognosticate in
 an ivory tower and then plop out a PDF with our thoughts. The reason that this
 is on GitHub is expressly so we can get comments, contributions, and changes
-from the entire observability world; practicioners, implementors, advocates,
+from the entire observability world; practitioners, implementors, advocates,
 community leaders, whoever. This vision shouldn't just be any one of our's
 vision, it should be all of ours vision.
