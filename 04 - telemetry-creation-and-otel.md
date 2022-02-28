@@ -136,7 +136,7 @@ decisions the project has made makes more sense. Will it always be this way?
 Probably not -- as the project stabilizes and matures, more work will go into
 the end-user experience, and it'll become easier to use for non-integrators as
 well. That said, the original goal is still the goal; OpenTelemetry should be a
-checkbox, something that just exists in the background. 
+checkbox, something that just exists in the background.
 
 With this in mind, it's easier to see how OpenTelemetry solves the
 instrumentation challenges posed in the last section. If it simply exists in
@@ -147,4 +147,4 @@ just start listening for more data, or for different data. If you're getting
 metrics, traces, and logs in a unified, context-aware format, then you aren't
 going to have to try and force everything to be represented as just a metric, or
 just a log, or just a trace, or some combination -- you'll have it all,
-intertwined, and cross-referencable. 
+intertwined, and cross-referencable.

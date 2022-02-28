@@ -18,7 +18,7 @@ panic and when to rest.
 Cloud-native observability promotes a radical new concept of monitoring, one
 that moves us away from (as many) terror-inducing point failures and towards a
 more holistic flow of understanding and accepting failure as a natural
-consequence of operating complex and complicated systems. 
+consequence of operating complex and complicated systems.
 
 ## Effective Dashboards
 
@@ -51,7 +51,7 @@ This fundamental mismatch isn't something that can necessarily be corrected by
 what we should be looking at. Most of the dashboards that are in use today for
 software are too low-level for continous monitoring; They simply say too much at
 once, and don't provide needed context for teams trying to operate cloud-native
-software. 
+software.
 
 Cloud-native observability would suggest that in lieu of these detailed,
 diagnostic dashboards, our primary dashboard becomes one that's full of Service
@@ -125,7 +125,7 @@ should measure the aggregate health of a particular type of transaction and give
 you at-a-glance knowledge about how that transaction is operating in production.
 This dramatically simplifies your monitoring workflow, as you're freed up to
 focus on what matters instead of slapping down flapping alerts or staring at
-stale dashboards. 
+stale dashboards.
 
 Even better, since SLO's tie these transactions to business goals and
 objectives, they're powerful tools to democratize reliability across an

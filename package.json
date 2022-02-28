@@ -1,0 +1,25 @@
+{
+  "name": "cloud-native-observability",
+  "version": "1.0.0",
+  "description": "![The Complete Guide to Cloud-Native Observability](./img/header.png)",
+  "main": "index.js",
+  "scripts": {
+    "lint": "markdownlint *.md",
+    "spellcheck": "cspell *.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lightstep/cloud-native-observability.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lightstep/cloud-native-observability/issues"
+  },
+  "homepage": "https://github.com/lightstep/cloud-native-observability#readme",
+  "devDependencies": {
+    "cspell": "^5.18.5",
+    "markdownlint": "^0.25.1",
+    "markdownlint-cli": "^0.31.1"
+  }
+}

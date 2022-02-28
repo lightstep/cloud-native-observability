@@ -12,7 +12,7 @@ Observability, then, isn't simply defined by the desired end state of
 "understanding a system by its outputs" (because there are no systems that can
 be controlled otherwise; a system without output is one that might as well not
 exist) -- it's a combination of tools and techniques, workflows and products,
-bound together with a shared language of SLI's and SLO's. 
+bound together with a shared language of SLI's and SLO's.
 
 The building blocks of observability are pretty straightforward in this model --
 telemetry, persistence, and workflows; Each building on the other. Let's break
@@ -49,7 +49,7 @@ impeteus to do anything more, because everything just works!
 This is the steady-state default for the overwhelming majority of professional
 software developers; Nobody really ever 'learned' logging because none of us had
 to. Sure, there's outliers -- but logging isn't one of those things that people
-need or want to reinvent every time they crank open their IDE. 
+need or want to reinvent every time they crank open their IDE.
 
 The problem, really, is that logs as we know them aren't a great observability
 primitive. Your logs probably aren't as structured as you like, you might not
@@ -99,7 +99,7 @@ chapter, because thankfully, this solution exists.
 
 We've come a long way from the "record everything and let God sort it out"
 mindset of the 2010's. It's true that storage is [cheaper than
-ever(https://blog.dshr.org/2012/02/cloud-storage-pricing-history.html)
+ever(<https://blog.dshr.org/2012/02/cloud-storage-pricing-history.html>)
 ], the increase in data volume easily negates the reduction in persistence
 costs. Additionally, an increasingly complex legal and regulatory environment --
 that only promises to get more complex -- demands sophistication in the question
@@ -130,7 +130,7 @@ between these signals. Keeping all of our data in separate buckets with
 incompatible query languages and APIs (or tortorously adapting metrics queries
 to support traces, or trying to use SQL as a lingua franca...) means that we're
 tilting our head and squinting at observability without really grasping the
-point. 
+point.
 
 What observability requires is specialized persistance that natively supports
 multiple types of telemetry, but also allows that telemetry data to be queried
@@ -218,7 +218,7 @@ my mind is that these kind of alerts don't actually give you any sort of context
 or rationale for how they're impacting things. Service owners can set up a
 variety of alerts based on assumptions that were made in the past that may not
 have any real connection to how the service is being used today or it's current
-usage patterns. 
+usage patterns.
 
 SLO-based alerting, though, solves this problem neatly. An SLO is already going
 to have a built-in threshold at which you should start caring about it (when
@@ -237,7 +237,7 @@ Consistent alerting based on SLOs reduces on-call handoff errors and anxiety, as
 there's a consistent set of things you'll be alerted on.
 
 Of course, this is only half of the equation -- once you've been alerted that
-you're burning down an SLO, you gotta figure out _why_. 
+you're burning down an SLO, you gotta figure out _why_.
 
 ### Investigating Change and Difference
 
@@ -245,7 +245,7 @@ I'm gonna say that there's no outage or incident that ever existed without
 something changing to cause it. Maybe that change wasn't something _you_ did --
 it could be a customer sending malformed payloads, or a dependent service
 suddenly changing its API, or an underlying dependency being updated by a
-well-meaning security team, or an unexpected cloud failure. 
+well-meaning security team, or an unexpected cloud failure.
 
 There's two types of change that we should care about -- intentional and
 unintentional. These intentional changes are produced as we develop and push

@@ -36,7 +36,7 @@ resources rather than transactions, as new foundational work (migrations to
 Kubernetes or the cloud in general) can emit significantly larger tranches of
 new telemetry data that requires more care and feeding -- more dashboards, more
 point solutions for monitoring or understanding specific types of cloud systems,
-and so forth. 
+and so forth.
 
 This leaves developers in a bit of a lurch. The telemetry they need in order to
 understand and diagnose end-user issues tends to be high cardinality and
@@ -45,7 +45,7 @@ cloud metrics being fed into a different (or even multiple different) monitoring
 systems. We've all got stories about not being able to add a new attribute to a
 metric, because we're arbitrarily limited on the amount of custom attributes for
 contractual purposes or because we can't afford to scale up Prometheus to handle
-the potential cardinality. 
+the potential cardinality.
 
 What we're left with, then, is a curious condition. We're spending more than
 ever, but getting less value from every dollar we spend. It's not just the bias
@@ -53,7 +53,7 @@ towards resource telemetry that causes this, it's everything we've touched on
 throughout each chapter. The implementation wall of improving data quality, the
 maintenence burden of creating and maintaining dashboards and queries, the
 morale and communication overhead of inconsistent or unclear alerts and
-reliability metrics, etcetera and so forth. 
+reliability metrics, etcetera and so forth.
 
 Compounding this problem is that we use data volume as a proxy for data quality.
 As discussed in the SLO chapter, modern organizations collect and capture
@@ -65,7 +65,7 @@ stores and tools each of these roles require are often disparate and
 unintegrated, leading to a need to either warehouse vast quantities of data or
 duplicate it to various endpoints. Managing this stream requires no small
 investment in time and money, and often overlays complex beauracracy into what
-should be trivial asks. 
+should be trivial asks.
 
 In summary, we've arrived at a situation where we're generating more telemetry
 from more places than ever before, sending it to more destinations with more
@@ -106,7 +106,7 @@ telemetry and our business data, we're able to improve our ability to forecast
 on-call rotations, hiring, and even the cadence of feature work. Democratizing
 access to this telemetry means these insights can come from anywhere in the
 organization, rather than being siloed by teams with limited visibility into the
-overall system health. 
+overall system health.
 
 ## Cost Reduction Strategies
 
@@ -120,7 +120,7 @@ This is, again, an anti-pattern. Telemetry generation at the process level does
 have an overhead, but it makes a lot more sense to have this overhead be
 relatively fixed rather than dynamic. That is to say, if you know that every
 transaction will have a given amount of telemetry generated for it, then you can
-plan for the amount of resources required to support that overhead. 
+plan for the amount of resources required to support that overhead.
 
 This isn't necessarily something that has a one-size-fits-all strategy to
 overcome. There's a world of difference between the amount of telemetry
@@ -158,7 +158,7 @@ Even if we know what data we need, and how to generate it, it's foolish to
 suggest that we collect and keep all of it. Systems that are in a steady state
 don't really have anything interesting to say in detail. If everything is good,
 or everything is bad, then you're probably not getting any useful insights from
-detailed telemetry. 
+detailed telemetry.
 
 Most of the time, though, your system will be somewhere between these extremes.
 This is why sampling is useful -- it's a way to ensure a representative amount
@@ -179,7 +179,7 @@ require bidirectional communication between telemetry clients to adjust
 head-based sampling rates based on other factors such as operator intent or
 independent signals, or by cache-and-forward approaches where a pool of
 collector processes store transactional telemetry in its entirety to make a
-decision about a group. 
+decision about a group.
 
 While these approaches have value, there's still a lot of confusion and further
 work needed. Static sampling is too proactive, dynamic sampling can be too

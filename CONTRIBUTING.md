@@ -11,3 +11,6 @@ grammar, etc.) should be accepted quickly. If you'd like to make a larger PR
 that edits, removes, adds, or expands upon a section or significant portion of
 the text then we'd appreciate if you opened an issue to discuss it first.
 
+## Development Dependencies
+
+* Node.JS

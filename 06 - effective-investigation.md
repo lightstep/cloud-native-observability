@@ -52,7 +52,7 @@ themselves a sufficient picture of their internal state to aid in hypothesis
 generation and disqualification, linked together by a shared request context.
 Additionally, point-in-time or periodic measurement of a resource's
 instrumentation carry enough data to allow for effective correlation between
-a specific (or aggregate) transaction and the underlying resource state. 
+a specific (or aggregate) transaction and the underlying resource state.
 
 What's been missing here is a _lingua franca_ for associating transactional and
 resource telemetry together. OpenTelemetry solves this through it's context and
@@ -70,12 +70,12 @@ transaction with an error, we can instead look at a graph of all services
 involved in a transaction and compare those graphs against each other. Resource
 consumption and limits can be overlaid on these graphs, quickly giving us visual
 feedback on resource exhaustion or oversubscription, unusual usage patterns, and
-so forth. 
+so forth.
 
 With enough time, these tools can mature and begin to use machine learning
 technologies to dynamically perform these comparisons and issue suggestions or
 commands to a system, such as modifying throttling for specific clients to ease
-pressure on a congested API that's approaching a SLO violation. 
+pressure on a congested API that's approaching a SLO violation.
 
 ## Guided Analysis vs. Data Exploration
 
@@ -95,7 +95,7 @@ caring for those charts for others. This sucks for everyone -- it silos
 knowledge into the hands of the observability sherpas, who quickly become single
 points of failure when they're unavailable or after they leave a team; It stunts
 growth and velocity as newer or more junior team members are unable to
-self-serve to answer questions. 
+self-serve to answer questions.
 
 We posit that data exploration is necessary but insufficient to satisfy the
 needs of cloud-native observability. It isn't an "either-or", but the primary
@@ -126,7 +126,7 @@ this document, data quality is one of the biggest things holding us back; The
 sort of hand-held analysis mentioned earlier is extremely difficult to achieve
 without significant amounts of instrumentation written in a standardized way,
 embedded throughout a complex application from its earliest days and maintained
-over the course of months or years. 
+over the course of months or years.
 
 There's hope here, in the form of OpenTelemetry -- its semantic conventions
 promise to make it easy to create standardized, high-quality telemetry data. In
@@ -144,8 +144,8 @@ expensive (such as metrics 'cardinality explosions' where high cardinality
 attributes can cause 10x, 100x, 1000x, or greater combinations of time-series to
 be created), very expensive (such as the cost for indexes on high-cardinality
 structured logs), and usually all of the above. It's an unavoidable
-complication. It's also a requirement for observability tools, so this tension 
-needs to be relieved somehow. 
+complication. It's also a requirement for observability tools, so this tension
+needs to be relieved somehow.
 
 We'll talk more about it in our section on [telemetry ROI](./telemetry-roi.md),
 but to the end user, cardinality shouldn't really be a concern. What we can do,
@@ -154,7 +154,7 @@ observability pipeline. Traces, logs, and metrics should all contain
 high-cardinality data, but those situations shouldn't ever cause significant
 impacts to your observability system, as it should be able to dynamically adjust
 the rate of collection and intelligently pre-aggregate and bucket data to avoid
-cardinality explosions hitting your actual system and causing failures there. 
+cardinality explosions hitting your actual system and causing failures there.
 
 As we stated earlier, the cornerstone of effective investigation is that you can
 capture as complete of a snapshot of system state as possible, to make it

@@ -75,7 +75,7 @@ software bridges a solutions gap as well, giving you the means to leverage
 expertise in _many_ fields to enhance what you can build. Need some
 text-to-speech? There's managed cloud services for that. Want to know what's
 going on with your software in production? A constellation of open source and
-software as a service tools are out there for your perusal. 
+software as a service tools are out there for your perusal.
 
 Beyond the economic arguments, though, cloud-native paints a wonderfully
 collaborative picture of how software can benefit our lives and world. The

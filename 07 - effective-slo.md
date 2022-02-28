@@ -7,7 +7,7 @@ There's a lot of ways to communicate reliability, but the SLO is the way that
 the simple and sane way to quantify things that are usually extremely difficult
 to quantify. That doesn't mean they're _easy_, but they're essential because
 they firmly orient everyone on your team around end-user experience, regardless
-of who that end-user is. 
+of who that end-user is.
 
 What makes an effective SLO, though? Like, a _really_ effective SLO? The
 association of SLO's with engineering teams and SRE practicioners has,
@@ -42,7 +42,6 @@ people (like... people) to projects and initiatives.
 Let's compare that, then, to how we report on reliability to the customers of a
 service. It looks a lot like this:
 
-
 | Service Name | Status |
 | ------------ | ------ |
 | Foobar       | Up     |
@@ -73,7 +72,7 @@ Cloud-native observability posits that SLOs are woefully underadopted and
 underappreciated in software organizations. Much of what you 'do' can be
 expressed as an SLO, and those SLOs (or aggregations of a group of them) should
 be the primary way realiability is communicated outward from engineering teams
-to the rest of the organization, and to your end-users directly. 
+to the rest of the organization, and to your end-users directly.
 
 Expressing reliability via SLO's as the default is rather revolutionary from a
 mindset perspective. You quickly realize that you were defaulting to a binary
@@ -84,7 +83,7 @@ is where you can improve and iterate -- pushing new features, or cleaning up
 technical debt. It's also an affirmative signal to the rest of the organization
 that this kind of acceptable failure is expected, and to think about failure not
 as a terminal state, but as something that can be managed through process,
-prioritization, and effective coping strategies. 
+prioritization, and effective coping strategies.
 
 That's not just hyperbole, either -- "move fast, break things" is a hyperbolic
 expression of this! We accept a certain amount of failure, we even encourage it
