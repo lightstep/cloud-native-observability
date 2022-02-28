@@ -107,7 +107,7 @@ These sort of logs are possibly the most common form of telemetry in use today,
 with dozens of open source and commercial solutions for generating, processing,
 indexing, and analyzing these logs. In addition, certain subsets of these logs
 are seen as valuable to security teams, who deploy their own suite of tooling to
-detect anomolies that could indicate system compromise by malicious actors.
+detect anomalies that could indicate system compromise by malicious actors.
 
 Modern observability requires a new approach to these log statements. We can't
 simply discard them out-of-hand, after all. Look to work being done in
@@ -124,7 +124,7 @@ that you may normally put into a log.
 
 Ah, metrics -- if logs are too heavy, and traces are too complex, then metrics
 have been the last refuge of the performance-minded engineer. The low cost of
-generating and storing timeseries metrics has made it a crucial element of
+generating and storing time-series metrics has made it a crucial element of
 understanding transaction performance, as they allow us to easily perform visual
 correlation between events. If I deploy a new version at 2:00, and at 2:01 the
 memory consumption line starts increasing, or the transactions-per-second line
@@ -164,7 +164,7 @@ can intermingle trusted and untrusted data in the same telemetry context.
 Addressing this requires not only data hygiene and defensive coding practices,
 but a strong understanding of security boundaries within a transaction.
 
-Scheduling adds another wrinkle to transaction telmetry, as well. Asynchronous
+Scheduling adds another wrinkle to transaction telemetry, as well. Asynchronous
 dispatch of a transaction (consider multiple independent calls to a profile
 service, a products service, an order history service in order to build a user
 dashboard in a web client) leads to unbounded context growth, and requires us to
@@ -192,11 +192,11 @@ power that work. A resource is durable -- it survives many transactions. Like a
 transaction, a resource comes in many shapes, sizes, and scale. A VM, a Docker
 container, a Kafka topic, a virtual CPU, a mutex lock... and even a AWS account
 can be a resource. What do they all have in common? They're finite. They can be
-exhausted. And when they oversaturate, transactions suffer.
+exhausted. And when they over-saturate, transactions suffer.
 
 We know the symptoms of resource exhaustion well -- database queries that used
 to take moments now taking minutes, login services timing out that are normally
-bulletproof, pods crashlooping in OOMKilled state.
+bulletproof, pods crash looping in OOMKilled state.
 
 When we talk about 'resiliency' in the context of cloud-native applications,
 we're often talking implicitly about resources -- ironically enough, this leads
@@ -242,9 +242,9 @@ resource -- startup, shutdown, and so forth -- or they're the second or third
 order effect of a transaction. A lower-level resource component might log
 actions that occur due to transaction faults, but if those faults are at a
 higher level of the stack, then the logs might not be terribly useful.
-Conversely, lower-level failures can bubble up and have a deliterious impact on
+Conversely, lower-level failures can bubble up and have a deleterious impact on
 transaction performance -- consider failures to scale a Kubernetes workload due
-to underlying failures in growing a nodepool.
+to underlying failures in growing a node pool.
 
 Let's talk about spans here as well. There aren't a ton of them for resources!
 Some of this is because transactions, generally, don't interact with _specific_
@@ -271,7 +271,7 @@ user-generated transaction.
 As alluded to in the sidebar, the line between resource and transactions can be
 a bit blurry. Transactions can manipulate resources, resource faults can modify
 the flow of transactions. These aren't necessarily two frictionless,
-noninteractive spheres. Let's illustrate through an example.
+non-interactive spheres. Let's illustrate through an example.
 
 Suppose we have a transaction that depends on resource like Kafka. Most of the
 time, a Kafka cluster will support multiple topics with a whole battery of
@@ -280,7 +280,7 @@ most part, ignorant about Kafka except through an abstraction layer buried
 several libraries deep; It simply writes messages and then polls for a response.
 This transaction is part of several other, broader transactions, that extend all
 the way back to a command issued by an end-user through a CLI. Kafka itself is
-performing transactions constantly, as message brokers recieve and dispatch
+performing transactions constantly, as message brokers receive and dispatch
 messages to topics and requests come in for the replay of new statements on each
 topic.
 
@@ -304,11 +304,11 @@ transaction will necessarily suffer. If we are only able to look at these two
 data sets independently, then that's where our investigation of this problem
 would end. The Kafka (Ops) team notices consumer lag has increased, posts a
 message to Slack that performance is degraded, and starts to comb through
-logfiles to try and understand why. The users, devs, and others who depend on
-that resource are left scratching their heads as to why performance is impacted
-unless they happen to be responsible for the abstraction that talks to Kafka, at
-which point they start to look at recent pushes to prod, to see if they broke
-something.
+log files to try and understand why. The users, developers, and others who
+depend on that resource are left scratching their heads as to why performance
+is impacted unless they happen to be responsible for the abstraction that talks
+to Kafka, at which point they start to look at recent pushes to prod, to see if
+they broke something.
 
 How do we solve this problem? If you're in a completely disconnected world, it's
 hard! Different teams own different parts of this problem, and maybe have

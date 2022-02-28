@@ -9,14 +9,14 @@ observability libraries. We understand this vision might be a hard sell -- after
 all, it doesn't really exist in one place, anywhere.
 
 This chapter will address a mixed bag of institutional concerns about the
-feasibility of this vision, objections raised by orthodox practicioners, and the
+feasibility of this vision, objections raised by orthodox practitioners, and the
 requirements for successful implementation of cloud-native observability.
 
 ## Combating the 'Three Pillars' ideology
 
 Objects in motion tend to stay in motion, this much is known. The momentum of
 traditional 'three-pillars' monitoring is difficult to understate. An immense,
-incalcuable amount of development time and money have gone into platforms that
+incalculable amount of development time and money have gone into platforms that
 operate based on this ideology. Existing systems, instrumented for discrete
 metrics/tracing/logging experiences, are loathe to change without provable,
 exponential improvements in experience.
@@ -40,7 +40,7 @@ analytical tools will act as a forcing function on the industry to modify their
 products. This should lead to a period of intense competition and consolidation,
 as new entrants and incumbents alike are no longer 'safe' due to vendor lock-in.
 
-## Build, Buy, and Everything Inbetween
+## Build, Buy, and Everything Between
 
 In this brave new OpenTelemetry world, should you buy or build? The answer
 depends on several factors. If we keep in mind that our telemetry data will be

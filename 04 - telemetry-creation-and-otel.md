@@ -2,7 +2,7 @@
 
 # Telemetry Creation and OpenTelemetry
 
-The foundation of observability is high quality, ubitquious, telemetry data. You
+The foundation of observability is high quality, ubiquitous, telemetry data. You
 need high quality signals that contain rich metadata, tooling that aids in the
 collection and processing of those signals, and APIs that are flexible enough to
 integrate into a wide variety of resources.
@@ -65,9 +65,9 @@ the specific role of OpenTelemetry in the cloud-native landscape.
 Cloud-native observability requires high quality, _thoughtful_, instrumentation
 of software. This is a challenging ask, and it's probably the reason that so
 many teams fail to achieve their observability goals. Much existing
-instrumentation is either upscaled (i.e., hydrating existing logging or
+instrumentation is either up-scaled (i.e., hydrating existing logging or
 metrics with additional metadata from an orchestration layer, like Kubernetes)
-or downscaled (i.e., fine-grained function or line level stack traces and
+or down-scaled (i.e., fine-grained function or line level stack traces and
 metrics being compacted or aggregated).
 
 There's two maxims we should abide by, here -- first, white-box instrumentation
@@ -95,7 +95,7 @@ instrumenting at the library makes a lot of sense. If you can control the code
 and the libraries, then another layer at the runtime makes sense. If you control
 all of that, then system-level instrumentation makes a lot of sense.
 
-These differing granularities need to also be configurable, either through a
+These differing granularity's need to also be configurable, either through a
 rules engine, or heuristic-based algorithms (i.e., when _x_ error rate is high,
 increase collection rate/depth, when _y_ metadata is present disable
 collection). We'll talk more about it in a later chapter, but high ROI
@@ -117,12 +117,12 @@ context for associating transactional telemetry together, and to ensure that
 high-quality data is a built-in feature of the cloud-native ecosystem.
 
 The status quo sucks, this much is true. Proprietary vendors spend millions on
-writing commodified integrations with popular open source libraries and
+writing commodity integrations with popular open source libraries and
 packages, or on translation layers between existing telemetry formats and their
 own. If you look at the actual code, though, most of this is all the same stuff!
 There's only so many ways to get a trace or a metric from a SQL client or a HTTP
 library. OpenTelemetry promises to change this, by providing open source
-maintainers a single, well-supported, and unopinionated standard for writing
+maintainers a single, well-supported, and un-opinionated standard for writing
 their own instrumentation code _or_ translating their existing instrumentation
 into the OpenTelemetry format.
 
@@ -140,11 +140,11 @@ checkbox, something that just exists in the background.
 
 With this in mind, it's easier to see how OpenTelemetry solves the
 instrumentation challenges posed in the last section. If it simply exists in
-your libraries, runtimes, and kernels then the actual burden of instrumenting
+your libraries, runtime environments, and kernels then the actual burden of instrumenting
 (or re-instrumenting) is greatly reduced. If it exists at multiple layers, then
 dynamically controlling the rate of telemetry generation isn't that hard -- you
 just start listening for more data, or for different data. If you're getting
 metrics, traces, and logs in a unified, context-aware format, then you aren't
 going to have to try and force everything to be represented as just a metric, or
 just a log, or just a trace, or some combination -- you'll have it all,
-intertwined, and cross-referencable.
+intertwined, and cross-referenced.

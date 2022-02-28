@@ -39,12 +39,12 @@ that telemetry.
 Logging is one of the fundamental activities in programming, insofar as the
 first thing you learn how to program is an application that prints 'Hello,
 World!' to a console. Unfortunately, this is both the first and last
-introduction most devs get to logging in their formal or informal education.
+introduction most developers get to logging in their formal or informal education.
 Logging is "easy" after all, so we don't tend to teach it. When you get into a
 'real job', your application will probably already have a chosen logging library
 that spits out some nicely structured log data (all built before you got there,
 or maintained by people that aren't you) -- you don't really have much of an
-impeteus to do anything more, because everything just works!
+impetus to do anything more, because everything just works!
 
 This is the steady-state default for the overwhelming majority of professional
 software developers; Nobody really ever 'learned' logging because none of us had
@@ -55,9 +55,9 @@ The problem, really, is that logs as we know them aren't a great observability
 primitive. Your logs probably aren't as structured as you like, you might not
 have context information embedded within them, and you never seem to have the
 right log granularity. They're everywhere, though! Nobody is going to accept a
-solution that requires rip-and-replace of the hundreds of thousands of loglines
-in a codebase. Cloud-Native Observability requires _enhancement_ of existing
-loglines into a format that allows them to be blended with other forms of
+solution that requires rip-and-replace of the hundreds of thousands of logging
+statements in a codebase. Cloud-Native Observability requires _enhancement_ of
+existing logs into a format that allows them to be blended with other forms of
 telemetry.
 
 ### Telemetry Quality
@@ -123,11 +123,11 @@ The solutions we've seen to this problem usually involve highly specialized
 databases for different signals. Projects such as
 [Cortex](https://cortexmetrics.io), [OpenSearch](https://opensearch.org), and
 [Cassandra](https://cassandra.apache.org/_/index.html) are all popular
-timeseries or NoSQL databases for storing metrics, logs, and traces,
+time series or NoSQL databases for storing metrics, logs, and traces,
 respectively. This fails a test, though -- observability is about more than just
 having these signals available, it's about the _integration_ and _correlation_
 between these signals. Keeping all of our data in separate buckets with
-incompatible query languages and APIs (or tortorously adapting metrics queries
+incompatible query languages and APIs (or torturously adapting metrics queries
 to support traces, or trying to use SQL as a lingua franca...) means that we're
 tilting our head and squinting at observability without really grasping the
 point.
@@ -137,7 +137,7 @@ multiple types of telemetry, but also allows that telemetry data to be queried
 in a consistent fashion regardless of type. This allows us to perform actual
 cross-cutting queries and comparisons between signals, have a shared syntax to
 express aggregations, groups, filters, and so forth, and reduce the cost and
-maintenence burden required to operate the storage layer. This cost shouldn't
+maintenance burden required to operate the storage layer. This cost shouldn't
 just be thought of as 'how much am I spending to keep this stuff operating',
 either -- controlling how much you're spending to keep this data around, and
 figuring out how useful it is, is key.
@@ -147,7 +147,7 @@ figuring out how useful it is, is key.
 There's an alternative theory about telemetry that agrees in spirit with the
 above sentiment. In summary, it claims that metrics, logs, and spans can all be
 generally classified as "events" -- a generic form of telemetry that represents
-some distinct, observable occurence in your system. The storage layer for these
+some distinct, observable occurrence in your system. The storage layer for these
 events can then be optimized for one type of data, rather than for each
 individually.
 
@@ -156,7 +156,7 @@ position presents challenges at the persistence layer. Certain signals contain
 implicit expectations about persistence that need to be addressed -- for
 example, most people wouldn't expect a single trace to arbitrarily be kept for
 over a month, but they would expect a time series to be (albeit in a compacted
-form). Metrics exist in an extremely compact format to begin with; 'Upscaling'
+form). Metrics exist in an extremely compact format to begin with; 'Up-scaling'
 them into an event adds metadata that effectively increases their storage cost
 over time. This also adds a burden to users, who need to pay special attention
 to how much data is being emitted to the storage engine, as it doesn't
@@ -178,7 +178,7 @@ Once you've got some data, and you've got it stored, you wanna do something with
 it. Traditionally this has meant you pull up some sort of query builder or data
 explorer and start running queries, then pulling those queries into a dashboard.
 A link to that dashboard would be added to a runbook or wiki page, and it'd
-mostly sit there unneeded until trouble came a-callin', at which point whoever
+mostly sit there unneeded until trouble came a-calling, at which point whoever
 was on call would open it up and realize half the graphs didn't work any more
 because someone renamed the metrics last month and didn't update the charts.
 
@@ -203,7 +203,7 @@ to click between multiple tabs and systems in order to get a complete picture of
 the system state.
 
 A better way to think of this is to change what we're actually monitoring.
-Dashboards full of visualizations over a collection of timeseries shiouldn't be
+Dashboards full of visualizations over a collection of time series shouldn't be
 our primary interaction method with our observability tools. Monitoring needs to
 very explicitly connect resource and transaction health with the business goals
 that they support. This changes our frame of reference to monitoring our SLOs
@@ -253,7 +253,7 @@ code out to our systems. They're the result of our CI/CD process, or dependency
 updates, or changes to our team structure. Observability acts as a flywheel on
 all of these, making us able to move forward more quickly and more safely, by
 ensuring we can identify the results of these deliberate changes. Did we
-actually fix that bug? Are we actually getting more signups? Did we reduce how
+actually fix that bug? Are we actually getting more sign-ups? Did we reduce how
 long it takes to load the page? While it's nice to muse about the high-minded
 pursuit of 'data exploration', most of us don't want to become Magellan in order
 to see the effect of merging a PR.

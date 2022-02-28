@@ -20,17 +20,18 @@ make it generally available in April 2022.
 Currently, we would appreciate feedback (either via issues or pull requests) in
 the following areas:
 
-* Structure and Flow
-* Comprehensability
-* Undefined or Underdefined Concepts/Terms
-* Underexplained/Overexplained Concepts/Terms
-* General Feedback
+* Overall structure and flow of the document.
+* Overall comprehension of the text/themes.
+* Un-defined, under-defined, or over-defined themes/concepts/terms.
+* General feedback on the ideas.
+* Illustrations and explanatory diagrams.
 
 ---
 
 ## Table of Contents
 
 <!-- TODO: Add subsection links to TOC -->
+<!-- cspell:disable -->
 
 * [README](./README.md)
 * [Foreward](<./00 - foreward.md>)
@@ -66,9 +67,10 @@ the following areas:
   * [Cost Reduction Strategies](<./08 - telemetry-roi.md#cost-reduction-strategies>)
 * [Organizational Concerns](<./09 - organizational-concerns.md>)
   * [Combating the 'Three Pillars' ideology](<./09 - organizational-concerns.md#combating-the-three-pillars-ideology>)
-  * [Build, Buy, and Everything Inbetween](<./09 - organizational-concerns.md#build-buy-and-everything-inbetween>)
+  * [Build, Buy, and Everything Inbetween](<./09 - organizational-concerns.md#build-buy-and-everything-between>)
   * [Organizing Effective Observability Through Centralization](<./09 - organizational-concerns.md#organizing-effective-observability-through-centralization>)
 
+<!-- cspell:enable -->
 ---
 
 ## Contributing

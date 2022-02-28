@@ -5,14 +5,14 @@
 There's a common aphorism, 'the only constant in life is change'. This is
 especially true of a software system. The magnitude and frequency of these
 changes differ based on a variety of factors both internal (team size,
-composition, development methodology) and external (userbase, seasons,
+composition, development methodology) and external (user base, seasons,
 internet connectivity interruptions) but they all can have an impact.
 Identifying, understanding, and mitigating the adverse impacts of these changes
 is in many ways the 'primary use case' of observability tools.
 
 "That seems obvious", you might say, but you wouldn't know it based on most
 existing monitoring and observability tools. The overwhelming majority of
-existing tools are focused around monitoring and dashboarding, with analytical
+existing tools are focused around monitoring and dashboards, with analytical
 features being difficult to use or of little value. Why is this the case? Three
 reasons come immediately to mind; The difficulty of building good
 general-purpose analytical workflows, inconsistent data quality preventing
@@ -21,7 +21,7 @@ interest amongst engineering staff.
 
 This is why our observability tools all kinda look the same if you turn your
 head and squint; The market forces optimization around 'table stakes' features
-such as query builders and visualizations, creating a dillemma for new entrants
+such as query builders and visualizations, creating a dilemma for new entrants
 -- buyers don't want different unless you can prove that different will save
 them money in the short term. This has lead to a great stagnation, where
 innovation is leashed to short-term financial incentives, benefiting nobody.
@@ -32,7 +32,7 @@ Investigating change should be about more than being able to bang out some
 really good queries or time-window correlations between different telemetry
 types. It calls for general-purpose analytical workflows that let us compare and
 contrast system state across transactions and resources at different times, in
-different conditions, and at infinte layers of granularity in order to quickly
+different conditions, and at infinite layers of granularity in order to quickly
 identify what changed, why it changed, and how it's impacting reliability and performance.
 
 ## Context -- What Ties Everything Together
@@ -135,7 +135,7 @@ holistic fashion. What is both necessary and sufficient for the systems we want
 to build and run?
 
 To address this, we need to talk about cardinality and tagging. There's a lot
-you can read about cardinality[^cardinalityDef] online, but to breifly review
+you can read about cardinality[^cardinalityDef] online, but to briefly review
 what it is, it's the amount of unique values associated with a single attribute
 on some piece of telemetry data like a log, metric, or span. High cardinality is
 the bane of observability systems, as it either makes things very slow (such as

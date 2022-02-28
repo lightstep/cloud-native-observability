@@ -16,12 +16,12 @@ Fundamentally, the cloud acts as the ultimate 'hack' around the creation and
 operation of a successful business, capital expenditure. There's only one reason
 that companies go out of business, after all -- they run out of money.
 Historically, the sums required to purchase, maintain, upgrade, and operate a
-world-class datacenter were out of reach for most businesses -- and even if they
-weren't for yours, you were still artifically gated on the capacity of those
-datacenters and your ability to grow them to meet demand.
+world-class data center were out of reach for most businesses -- and even if they
+weren't for yours, you were still artificially gated on the capacity of those
+data centers and your ability to grow them to meet demand.
 
 Cloud-Native has changed this fundamental maxim, and in doing so, has raised
-some surprising questions and quandries of its own. Let's discuss them now, so
+some surprising questions and quandaries of its own. Let's discuss them now, so
 that we can understand how observability fits into the mix.
 
 ## What's the point of software development, anyway?
@@ -33,12 +33,12 @@ something_ by knowing the right words felt magical.
 Strategic business application development is a pretty far cry from the BASIC
 databases I wrote to keep track of my baseball card collection, but even as a
 child, I was confronted with a tradeoff that has remained true in the nearly
-fourty years hence: I want to add features, and increase reliability, but I need
+forty years hence: I want to add features, and increase reliability, but I need
 to do both as efficiently as possible.
 
 All challenging software development questions can be boiled down into the
 rake's maxim of "cheap, fast, good -- pick two". Developing software, be it for
-yourself, or for an audience of millions, is a reoccuring set of decisions that
+yourself, or for an audience of millions, is a reoccurring set of decisions that
 boil down to picking the two that matter most at any given time. Complicating
 this is that we live in a globally connected world full of [unexpected
 events](https://www.history.com/this-day-in-history/first-confirmed-case-of-coronavirus-found-in-us-washington-state),
@@ -98,7 +98,7 @@ around the consolidation of so much computing power within the hands of a few
 private companies. That said, the benefits outweigh the risks in most cases for
 most people, because the cloud lets you do infinitely more with much less.
 
-[^1]: I use 'cloud' and 'cloud-native' here somewhat interchangably, but to be
+[^1]: I use 'cloud' and 'cloud-native' here somewhat interchangeably, but to be
     definitional:
     'The Cloud' refers to highly-scalable, usually virtualized, programmatically
     configurable computing resources that are billed and metered through a

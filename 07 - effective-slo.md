@@ -10,7 +10,7 @@ they firmly orient everyone on your team around end-user experience, regardless
 of who that end-user is.
 
 What makes an effective SLO, though? Like, a _really_ effective SLO? The
-association of SLO's with engineering teams and SRE practicioners has,
+association of SLO's with engineering teams and SRE practitioners has,
 possibly unsurprisingly, made them feel somewhat unapproachable to people
 outside those spheres. In this section, we'll discuss not how to make an SLO,
 but how to use them as bridges between different parts of a business and use
@@ -20,7 +20,7 @@ and incident reporting.
 ## Counting the Uncountable
 
 The concept of 'data-driven' organizations has become rather en vogue over the
-past years. Driven in no small part by a bunch of businesses sellling you data
+past years. Driven in no small part by a bunch of businesses selling you data
 shovels, we're encouraged to collect and quantify increasingly fine-grained data
 about everything that happens in the course of doing business. Contacts with
 customers, logins and logouts, session lengths, what links people click in
@@ -45,7 +45,7 @@ service. It looks a lot like this:
 | Service Name | Status |
 | ------------ | ------ |
 | Foobar       | Up     |
-| Bazquuz      | Down   |
+| Baz          | Down   |
 
 There's a pretty big disconnect between the level of granularity we expect out
 of goals that, frankly, are ill-defined and unquantifiable (such as "Ensure
@@ -68,10 +68,10 @@ failure isn't a useful way to communicate reliability.
 
 ## Pushing The Envelope
 
-Cloud-native observability posits that SLOs are woefully underadopted and
+Cloud-native observability posits that SLOs are woefully under-adopted and
 underappreciated in software organizations. Much of what you 'do' can be
 expressed as an SLO, and those SLOs (or aggregations of a group of them) should
-be the primary way realiability is communicated outward from engineering teams
+be the primary way reliability is communicated outward from engineering teams
 to the rest of the organization, and to your end-users directly.
 
 Expressing reliability via SLO's as the default is rather revolutionary from a

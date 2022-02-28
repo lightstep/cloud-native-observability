@@ -9,7 +9,7 @@ staggering. Organizations spend hundreds of millions of dollars a year (at the
 high end) on collecting and storing telemetry data, much of which is never even
 seen by a human being nor influences a decision.
 
-The status quo is harmful to observability practice, practicioners, and
+The status quo is harmful to observability practice, practitioners, and
 end-users alike. Curiously, it's also something we don't talk about much. While
 there's a generalized acceptance that we pay too much for too little, there's
 also a generalized malaise that this is simply the way the world works and we
@@ -21,7 +21,7 @@ different cost management strategies, and where they should be applied.
 
 ## Costs Go Up, ROI Goes Down -- You Can Explain That
 
-You only have to look at financials from major monitoring vendors to see that
+You only have to look at financial data from major monitoring vendors to see that
 the people selling shovels are doing pretty well indeed. Organizations pay more
 than ever to collect even greater amounts of telemetry data each year. If this
 cost was linked to a linear scaling function -- as in, you pay more because you
@@ -51,7 +51,7 @@ What we're left with, then, is a curious condition. We're spending more than
 ever, but getting less value from every dollar we spend. It's not just the bias
 towards resource telemetry that causes this, it's everything we've touched on
 throughout each chapter. The implementation wall of improving data quality, the
-maintenence burden of creating and maintaining dashboards and queries, the
+maintenance burden of creating and maintaining dashboards and queries, the
 morale and communication overhead of inconsistent or unclear alerts and
 reliability metrics, etcetera and so forth.
 
@@ -62,9 +62,9 @@ decision-making. Different stakeholders each have their own telemetry desires --
 security teams demand access and flow logging, analysts demand usage and journey
 analytics, SRE's need high-fidelity resource and transaction telemetry. The data
 stores and tools each of these roles require are often disparate and
-unintegrated, leading to a need to either warehouse vast quantities of data or
+nonintegrated, leading to a need to either warehouse vast quantities of data or
 duplicate it to various endpoints. Managing this stream requires no small
-investment in time and money, and often overlays complex beauracracy into what
+investment in time and money, and often overlays complex bureaucracy into what
 should be trivial asks.
 
 In summary, we've arrived at a situation where we're generating more telemetry
@@ -86,17 +86,17 @@ telemetry from our systems in order to generate forward-looking insights into
 the reliability of not only our system itself, but the organizational support
 for iterating on that system. As mentioned back in the introductory chapters, we
 don't just want to be able to build fast, we _need_ to be able to build fast.
-Rapid iteration isn't just smart, it's safe. Lengthly verification cycles in
+Rapid iteration isn't just smart, it's safe. Lengthy verification cycles in
 pre-production systems don't necessarily translate to higher quality features or
 less disruptive deployments due to the inherent drift between production and
 non-production environments. Observability can change this balance, as it allows
-us the ability to safely monitor continous deployments into production and roll
+us the ability to safely monitor continuous deployments into production and roll
 back if things aren't working out like we hope. Telemetry is the input into this
 prediction algorithm -- and calling it an algorithm is really just being fancy,
 this is basically describing a canary rollout. Traditional canaries look at
 limited amounts of telemetry, though -- simple "is it up? is it fast?"
 questions. Judicious use of metadata can give us more fine-grained options for
-canarying, allowing us to see if we're actually improving our SLO adherence or
+canary-ing, allowing us to see if we're actually improving our SLO adherence or
 achieving specific business goals as part of a rollout.
 
 Predictive telemetry also helps in capacity planning, not just for resources,
@@ -144,7 +144,7 @@ That said, what do we do when things get weird? There's always going to be
 circumstances where the amount of data you need to solve a problem is greater
 than the amount of data you keep on-hand. This is where 'deep' telemetry comes
 in. We use this to refer to any number of process or system level dumps of
-telemetry data that wouldn't normally be collected; Think pprof profiles, kernel
+telemetry data that wouldn't normally be collected; Think `pprof` profiles, kernel
 dumps, or network flow logs. The role of your observability system should be to
 make transitioning across the boundary (from steady-state collection of
 high-level diagnostic information to low-level system information) painless.
