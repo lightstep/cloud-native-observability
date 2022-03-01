@@ -7,9 +7,19 @@ pre-releases)](https://img.shields.io/github/v/release/lightstep/cloud-native-ob
 
 # About This Project
 
-The goal of this repository is to present a statement, and a vision, about
-observability -- specifically, observability for organizations building and
-operating cloud-native software.
+Observability, as a term, is a victim of its own success. Unfortunately, that
+success has led to it becoming almost entirely worthless as a descriptor, as it
+has been polluted and over-indexed by marketing teams from dozens of companies.
+We believe that observability is an essential practice for developers, but doing
+so requires that we put forth a strong statement about what it is, and what it
+is not.
+
+The purpose of this repository is to collectively define that vision. We aren't
+interested in selling any specific product, or in attacking specific people or
+competitors. Our goal is to clearly define and state an editorial opinion about
+what observability means for cloud-native developers, and the cloud-native
+ecosystem. This vision, when realized, should inspire and shape the next
+generation of observability tools and practices.
 
 This project is in a _draft_ state. We are actively refining, polishing, and
 iterating on the content. Our goal is to spend March 2022 doing refinement, then
