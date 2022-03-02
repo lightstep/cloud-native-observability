@@ -7,7 +7,7 @@ pre-releases)](https://img.shields.io/github/v/release/lightstep/cloud-native-ob
 
 # About This Project
 
-**What is the goal of this project?** to provide a clear, concise, and unbiased
+**What is the goal of this project?** To provide a clear, concise, and unbiased
 overview of cloud-native observability.
 
 **Why is that important?** Despite untold millions of marketing dollars spent in
