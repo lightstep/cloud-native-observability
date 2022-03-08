@@ -18,7 +18,13 @@ The building blocks of observability are pretty straightforward in this model --
 telemetry, persistence, and workflows; Each building on the other. Let's break
 it down, starting at the bottom, with telemetry.
 
+> COMMENT: add a high-level description of telemetry, persistence, and workflows
+> before diving into the details, so readers have a frame of reference. 
+
 ## Telemetry
+
+> COMMENT: as mentioned in the last chapter, we should consolidate all of our 
+> telemetry definitions into this section.
 
 In our prior discussion of transactions and resources, we addressed the three
 types of telemetry -- [metrics, logs, and
@@ -35,6 +41,9 @@ is twofold, then -- first, telemetry generation itself, and then, the quality of
 that telemetry.
 
 ### The Quiet Tyranny Of Logging
+
+> COMMENT: When we move tracing over, we should also make the case here that 
+> tracing and logging aren't really separate tools. 
 
 Logging is one of the fundamental activities in programming, insofar as the
 first thing you learn how to program is an application that prints 'Hello,
@@ -61,6 +70,10 @@ existing logs into a format that allows them to be blended with other forms of
 telemetry.
 
 ### Telemetry Quality
+
+> COMMENT: maybe focus more on data consistency first, and separate out the 
+> issue of vendor lock-in into a follow up section (which could also mention the
+> dilemma OSS libraries find themselves in).
 
 Indeed, there's quite a few existing ways to generate telemetry data outside of
 just logs that are embedded within our software. You can probably find a dozen

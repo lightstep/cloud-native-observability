@@ -1,6 +1,8 @@
 ![Chapter 1 - The Why's and Whats of Cloud-Native](./img/ch1_header.png)
 
 # The Why's and Whats of Cloud-Native
+> IMAGE: Some kind of editorial cartoon about cloud computing and the rent being 
+too damn high.
 
 In the beginning, there were servers, and we looked upon them and said "what if
 Jeff Bezos could make so much money selling books and renting out time on other
@@ -48,6 +50,8 @@ progress](https://en.wikipedia.org/wiki/Moore%27s_law#/media/File:Moore's_Law_Tr
 and much more. The world keeps happening regardless of our personal desires, and
 we're forced to be reactive on some level; If we don't, then we're dead.
 
+> IMAGE: *DRINK COFFEE ship broken features FASTER with more ENERGY*
+
 To distill this a bit, then, the point of modern software development is **to
 accelerate innovation and increase system reliability, for as little money as
 possible**. We seek to deliver new features more quickly than not only our
@@ -89,6 +93,9 @@ convivial way. Heck, can you imagine a remote-first or hybrid work world without
 Zoom? The cloud has made it possible to build companies, products, and
 communities on a shoestring budget with collaborators around the world -- then
 scale them to a global audience, with a minimum of pain.
+
+> COMMENT: the OSS insert between data centers and zoom feels like a bit of a 
+> non-sequitur.
 
 That isn't to say it's all sunshine and roses. Despite the level of access we
 have to the cloud, there's vast differences in how teams and organizations

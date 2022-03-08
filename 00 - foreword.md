@@ -20,6 +20,12 @@ and small. With that in mind, we decided to put our heads together, do some
 research, and create an updated resource for the cloud-native community and
 anyone else that wonders "what the heck is observability, anyway?"
 
+> COMMENT: Should we link to *Modern Observability with OpenTelemetry* instead of 
+> this older report? It frames everything in terms of "three pillars" and I'd 
+> like us to be consistent in moving away from that framing, and towards the
+> "single braid" framing.
+
+
 Welcome, to **The Complete Guide to Cloud-Native Observability**.
 
 ## Who Is This For?

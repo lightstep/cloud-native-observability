@@ -29,6 +29,10 @@ system failures. What both of them have in common is that they have a
 fundamental need to utilize a software system, and they are limited in their
 ability to utilize it by analyzing its outputs.
 
+> IMAGE: A checkout button (or a rideshare, or something similarly 
+> complex but familiar) visualized as a distributed transaction. The grumpy user
+> holding the phone is thinking "What's taking so long?!"
+
 Customers have a deliberately narrowed scope of visibility into a system, and
 relatively fewer tools to modify system behavior than an engineer. Engineers
 have privileged access and the ability to probe, inspect, and modify a
@@ -36,6 +40,8 @@ system's behavior, but have a vastly larger surface area to cover in order to
 understand individual failures that a customer may be experiencing. We can
 characterize this by saying that customers mostly care about **transactions**,
 whereas engineers must contend with **resources**.
+
+> COMMENT: Maybe in the "Anatomy of Observability" chapter, I'd like to break "engineers" down a bit more, and point out how the different engineering roles interact with an observability system (and potentially get in each other's way). We can lift this from "Requirement: Separate Instrumentation, Telemetry, and Analysis" (p. 27) of Modern Observability.
 
 If customers and engineers are the who's of observability, transactions and
 resources are the what's and the why's. These four groups not only help us
@@ -62,6 +68,15 @@ in terms of monitoring granularity, because the act of observing transactions
 has a cost in terms of emitted telemetry.
 
 ### Transaction Telemetry
+
+> COMMENT: In general I think this is a really good chapter and a good framing 
+> to on-ramping readers into our vision of observability. I suggest deferring 
+> all descriptions of telemetry types till a later chapter, so that we can get 
+> the high level concepts of transactions and resources - and the complex, 
+> shitty ways in which they interact - firmly implanted into the readers head.
+> All of the telemetry details break up the flow between describing 
+> transactions and resources, and dump a lot of concepts on the reader. We 
+> should save them until after we define "telemetry" in the next chapter.
 
 Nothing in life is free, as they say, and telemetry data can be quite costly.
 There's a fundamental tension in transaction observability; you want to generate

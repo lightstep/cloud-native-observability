@@ -21,3 +21,5 @@ system or endpoint. For example, a logging statement or a metric instrument.
 _Instrument_: A logical object that emits a specific piece of named telemetry.
 For example, an instrument might measure the current number of requests being
 handled by a process, or the amount of free disk space.
+
+> COMMENT: we should add a definition of tracing here
