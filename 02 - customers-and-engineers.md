@@ -20,7 +20,7 @@ more efficiently.
 
 Observability is about two distinct groups of people, and their concerns. These
 groups are **customers** and **engineers**. Customers are anyone that uses a
-system to do something useful, Engineers are anyone who are responsible for that
+system to do something useful. Engineers are anyone who are responsible for that
 system. Within those extremely broad categories, there's an entire universe of
 possibility; customers have different needs, wants, expectations, desires, and
 tolerances for system failure and latency. Engineers, as well, have differing
@@ -98,7 +98,7 @@ took so long.
 
 #### Logging
 
-'Traditional' here refers to the practice of emitting unstructured or structured
+'Traditional' logging refers to the practice of emitting unstructured or structured
 text-based logs from application code in order to inspect transaction state,
 record exceptional circumstances, and preserve details of catastrophic service
 failure (such as crashes).
