@@ -18,11 +18,21 @@ that companies go out of business, after all -- they run out of money.
 Historically, the sums required to purchase, maintain, upgrade, and operate a
 world-class data center were out of reach for most businesses -- and even if they
 weren't for yours, you were still artificially gated on the capacity of those
-data centers and your ability to grow them to meet demand.
+data centers and your ability to grow them to meet demand. In many ways, you can
+compare the cloud to the commodification of public infrastructure like water,
+power, sewage, and transit. Before these public utilities existed, you may have
+been required to drill a well for water, or build a mill for power --
+commodification freed up businesses to plug into collective resources and get
+straight to work. Similarly, the cloud provides a robust and reliable set of
+computing resources for everyone to build on, usually at a fraction of the price
+of building them ourselves.
 
-Cloud-Native has changed this fundamental maxim, and in doing so, has raised
-some surprising questions and quandaries of its own. Let's discuss them now, so
-that we can understand how observability fits into the mix.
+This shift towards servers and compute resources as a commodity led to a new
+method of developing and designing software, referred to as 'cloud-native'.
+However, this shift has raised new and surprising questions, challenges, and
+obstacles to developers who pursue it. To understand how observability relates
+to cloud-native, we need to ask a more fundamental question -- why do we develop
+software at all?
 
 ## What's the point of software development, anyway?
 
@@ -81,14 +91,16 @@ Beyond the economic arguments, though, cloud-native paints a wonderfully
 collaborative picture of how software can benefit our lives and world. The
 consolidation of data centers has created a [green
 revolution](https://www.nytimes.com/2020/02/27/technology/cloud-computing-energy-usage.html),
-where computing power has gone up but energy use has gone down. Commercially
-funded open source software has its detractors, but the success of the
-[Cloud-Native Computing Foundation](https://www.cncf.io) demonstrates that
-disparate competitors can come together to build foundational technology in a
-convivial way. Heck, can you imagine a remote-first or hybrid work world without
-Zoom? The cloud has made it possible to build companies, products, and
-communities on a shoestring budget with collaborators around the world -- then
-scale them to a global audience, with a minimum of pain.
+where computing power has gone up but energy use has gone down. Open source
+software, once regarded as a land of free-speech absolutists and cranks, has
+been commercialized and funded by the world's largest companies to build even
+more [cloud-native software](https://www.cncf.io), freely given to the next
+generation of developers to solve the challenges of today and tomorrow. The
+adaptive capacity and scaling benefits of the cloud were on display in full
+effect as a global workforce moved from offices to work-from-home, and
+[Zoom](https://www.zoom.com) became the lifeline for our personal and
+professional lives. It's hard to imagine the future without the cloud, but it's
+even harder to imagine the present.
 
 That isn't to say it's all sunshine and roses. Despite the level of access we
 have to the cloud, there's vast differences in how teams and organizations
