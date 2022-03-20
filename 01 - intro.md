@@ -27,9 +27,12 @@ straight to work. Similarly, the cloud provides a robust and reliable set of
 computing resources for everyone to build on, usually at a fraction of the price
 of building them ourselves.
 
-Cloud-Native has changed this fundamental maxim, and in doing so, has raised
-some surprising questions and quandaries of its own. Let's discuss them now, so
-that we can understand how observability fits into the mix.
+This shift towards servers and compute resources as a commodity led to a new
+method of developing and designing software, referred to as 'cloud-native'.
+However, this shift has raised new and surprising questions, challenges, and
+obstacles to developers who pursue it. To understand how observability relates
+to cloud-native, we need to ask a more fundamental question -- why do we develop
+software at all?
 
 ## What's the point of software development, anyway?
 
