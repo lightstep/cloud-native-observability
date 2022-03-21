@@ -20,54 +20,149 @@ it down, starting at the bottom, with telemetry.
 
 ## Telemetry
 
-In our prior discussion of transactions and resources, we addressed the three
-types of telemetry -- [metrics, logs, and
-traces](./customers-and-engineers.md#transactions), and how transactions and
-resources use them to emit signals about performance. Let's look at the
-commonalities between these signals, and discuss how they act as a foundation
-for observability itself.
+In the [prior chapter](./02%20-%20customers-and-engineers.md), we discussed
+three different telemetry signals that can be emitted by transactions and
+resources. These signals -- logs, metrics, and traces -- are sometimes referred
+to as the "three pillars" of observability. However, this is a misnomer borne
+from the rough way that the observability space has matured backed up mostly by
+product marketing rather than practical reality. These signals are all
+interrelated, interconnected, and indispensible to observability tools.
+
+Let's discuss each of them first, and how they can be used to understand
+transactions and resources. Then, we'll discuss how signal quality and richness
+impacts observability.
+
+### Logs, Metrics, and Traces
+
+**Logging** is the practice of writing human-readable text data to the console
+or a file. This data can be structured into a predefined schema for processing
+by a log management system, or unstructured free text -- usually, both, and
+often inside the same component. Logs help engineers understand transaction or
+resource state, especially in exceptional cases such as process failure.
+
+**Metrics** are compact, numerical, statistic data designed for easy and cheap
+transmission and storage. Metrics can be emitted by transactions or resources,
+and are usually visualized and analyzed as a time-series plot. Metrics help
+engineers understand aggregate system health, or track key indicators of
+transaction performance.
+
+**Traces** are a special form of structured, machine-readable, logging. While
+different tracing systems can vary in their details, they all share the idea
+of a transaction-level context -- this means that a single trace is mapped to a
+single, logical request through a distributed system. A trace is comprised of
+multiple spans, where each span represents a logical unit of work executed as a
+part of the transaction.
+
+While transactions and resources can both emit any of these signals, there are
+some that make more sense than others. The following table illustrates a few
+examples of this:
+
+<!-- markdownlint-disable line-length-->
+| | Logs | Metrics | Traces |
+| --- | --- | --- | --- |
+| **Transactions** | A stack trace dumped during process crash | A counter of concurrent user sessions in a given service | A span that wraps a database call |
+| **Resources** | Information about processes that started or stopped | The amount of memory in use per-process | The work being done by a forked shell script |
+<!-- markdownlint-enable line-length -->
+
+The challenge of cloud-native observability isn't simply in emitting each of
+these signals, however -- we need to understand why they fail in isolation, and
+how to relate and connect them to each other.
+
+#### The Momentum Tax
+
+As said in _Mass Effect_, Sir Issac Newton is the deadliest son-of-a-b*tch in
+the galaxy. The same is unfortunately true in the realm of telemetry. I would
+suggest that the overwhelming majority of complex systems in use today are built
+on a rats nest of variegated telemetry signals with vastly different and often
+conflicting users and stakeholders. If you believe this to be false, then I
+invite you to count how many crucial business processes relating to the software
+you maintain or build occur within Microsoft Excel.
+
+The hard truth is that any observability practice is bound by the least
+observable component of any of its critical paths. What does it mean to be
+'observable'? Broadly, to have accurate, correct, and descriptive telemetry data
+produced reliability and quickly by your components. As we'll see, extant
+telemetry signals tend to fail at multiple parts of this test. As to why we
+still _use_ these signals, well, look at the heading -- momentum. It's hard to
+justify replacing your telemetry for anything other than a massive perceived
+value, because the people who pay the tax are usually _engineers_ rather than
+customers. Let's discuss some of the flaws of each signal as they're usually
+implemented.
+
+Logging tends to suffer the most from the momentum tax, as it's the easiest
+thing to produce. The first thing most of us probably learned how to program was
+an application that wrote "Hello, World!" to the console, after all.
+Unfortunately, most developers education about how to log started and stopped at
+this point. It's one of those skills that we don't really train except through
+osmosis as we become more experienced engineers. It's a "damned if you do,
+damned if you don't" signal, because it truly is the lowest common denominator
+of telemetry; Everything can emit it, and everything can read it, if you put in
+the work. In addition, logging has many suitors -- security teams, auditors,
+finance and operations, developers, and many more.
+
+Metrics suffer as well, but in a more pernicious way. Rather than a lack of
+suitability, metrics tend to suffer from a lack of precision due to the
+ever-present fear of [cardinality
+explosions](https://www.robustperception.io/cardinality-is-key) or [confusing
+and misleading](https://www.robustperception.io/on-the-naming-of-things) names
+or attributes. Metrics tend to be underused in transaction telemetry
+specifically -- the requisite variety required to produce highly detailed time
+series at scale is, for most metric systems, unsustainable. A question like
+"show me the latency of a particular endpoint by customer ID" is easy when you
+have ten customers, hard when you have ten thousand, and nearly impossible when
+you have ten million. Resource metrics suffer from similar scaling issues,
+especially thanks to container orchestration and horizontal scaling.
+
+Traces, being a 'newer' signal type, suffer less from this momentum tax.
+Generally the biggest challenge experienced here is divergent or discordant
+trace specifications and implementations as different teams implement tracing on
+specific sub-systems without connecting them to each other. Additionally, APM
+(Application Performance Monitoring) and RUM (Real User Monitoring) tools have
+led many engineers to only understand tracing in the context of _profiling_ a
+single process rather than holistic system health.
+
+With all that said, what _should_ it look like?
+
+### Cloud-Native Telemetry Generation
+
+Our discussion of transactions and resources touched on a point -- transactions
+consume resources, resource exhaustion makes transactions suffer. You can also
+think of this in the inverse, that a collection of resources is a state machine
+which produces desired transactions. This is an important distinction, because
+it raises very real questions about where we _should_ generate telemetry, and
+how we aggregate it.
+
+I would suggest a rather facile response, which is that we do _both_ at the same
+time through context mechanisms that allow for us to tie the telemetry signals
+generated by our transactions and resources together. This necessarily means we
+need tools that are capable of correlating signals regardless of their
+component, and aggregating them based on the needs of operators rather than on
+arbitrary distinctions driven by their source. Logs, metrics, and traces all
+have a place -- and it's the same place, as an interrelated and interconnected
+braid of data.
+
+We'll address the exact mechanisms by which this data can be generated in the
+[next chapter](./04%20-%20telemetry-creation-and-otel.md), but I want to bring
+it up here before we start talking about what _good_ telemetry looks like.
+As mentioned above, it's not enough to just be correct or accurate, you need to
+be both.
+
+### Telemetry Quality
 
 Telemetry, in general, is the most important part of observability; If you don't
 have telemetry, you can't do much else. It stands to reason, then, that the
 quality and quantity of your telemetry data has a direct and measurable impact
-on your observability practice in general. The problem that we need to overcome
-is twofold, then -- first, telemetry generation itself, and then, the quality of
-that telemetry.
+on your observability practice in general. This doesn't simply impact the
+software systems analyzing your telemetry, but the engineers trying to make
+sense of it -- and it's those engineers who define what "quality" ultimately
+means here.
 
-### The Quiet Tyranny Of Logging
-
-Logging is one of the fundamental activities in programming, insofar as the
-first thing you learn how to program is an application that prints 'Hello,
-World!' to a console. Unfortunately, this is both the first and last
-introduction most developers get to logging in their formal or informal education.
-Logging is "easy" after all, so we don't tend to teach it. When you get into a
-'real job', your application will probably already have a chosen logging library
-that spits out some nicely structured log data (all built before you got there,
-or maintained by people that aren't you) -- you don't really have much of an
-impetus to do anything more, because everything just works!
-
-This is the steady-state default for the overwhelming majority of professional
-software developers; Nobody really ever 'learned' logging because none of us had
-to. Sure, there's outliers -- but logging isn't one of those things that people
-need or want to reinvent every time they crank open their IDE.
-
-The problem, really, is that logs as we know them aren't a great observability
-primitive. Your logs probably aren't as structured as you like, you might not
-have context information embedded within them, and you never seem to have the
-right log granularity. They're everywhere, though! Nobody is going to accept a
-solution that requires rip-and-replace of the hundreds of thousands of logging
-statements in a codebase. Cloud-Native Observability requires _enhancement_ of
-existing logs into a format that allows them to be blended with other forms of
-telemetry.
-
-### Telemetry Quality
-
-Indeed, there's quite a few existing ways to generate telemetry data outside of
-just logs that are embedded within our software. You can probably find a dozen
-versions of log4j in any given application (well, maybe fewer these days) along
-with a few different metric libraries, maybe a custom tracing library or two.
-Perhaps you're using a commercial solution, which means your telemetry APIs are
-all controlled by a vendor's agent or SDK.
+For many of us, the quality of our telemetry data varies drastically, even
+within a given signal. Consider the amount of varying logging libraries or
+targets you're likely to find in a sufficiently large application, the variance
+in metrics produced by different operating systems or frameworks, and
+tracing data produced by different resources or half-implemented omnibus tracing
+efforts.
 
 This puts us in a bit of a pickle; We're generating more telemetry than ever,
 but none of it in the same way. Even within the context of a single transaction,
