@@ -15,8 +15,10 @@ exist) -- it's a combination of tools and techniques, workflows and products,
 bound together with a shared language of SLI's and SLO's.
 
 The building blocks of observability are pretty straightforward in this model --
-telemetry, persistence, and workflows; Each building on the other. Let's break
-it down, starting at the bottom, with telemetry.
+telemetry, persistence, and workflows; Each building on the other. Telemetry is
+data and metadata about the behavior of our transactions and resources.
+Persistence is how we collect and store that data. Workflows are how we analyze
+and make sense of it. Let's look deeper into each, starting with telemetry!
 
 ## Telemetry
 
@@ -293,7 +295,7 @@ over time. This also adds a burden to users, who need to pay special attention
 to how much data is being emitted to the storage engine, as it doesn't
 necessarily know about the different types of signals and can't make intelligent
 decisions about how or where to store things (i.e., moving
-useful-but-not-critical log or trace data to cool storage rather than keeping it
+useful-but-not-critical log or trace data to cold storage rather than keeping it
 warm)
 
 In practice, rather than trying to genericize telemetry signals, it can be more
@@ -339,6 +341,17 @@ our primary interaction method with our observability tools. Monitoring needs to
 very explicitly connect resource and transaction health with the business goals
 that they support. This changes our frame of reference to monitoring our SLOs
 rather than our specific SLIs.
+
+One way to think about this is to borrow from the field of industrial control
+and safety thinking[^safetyWhitepaper]. Safety-I focuses around incidents, and
+what goes wrong. Safety-II is far more concerned with what goes _right_ in a
+system, and learning from that. Observability workflows should, on the balance,
+be more concerned with reporting and measuring acceptable outcomes in order to
+shape our thinking about our system, and how to build it in a more resilient
+way (aka 'model formation'). Traditional alerting and monitoring approaches are
+caught in a Safety-I mindset, but SLOs are much more useful to drive Safety-II
+approaches because they help you focus on what _should_ be happening rather than
+what _is_ happening.
 
 SLOs provide a convenient framework for alerting, as well. Traditionally, we'd
 know 'something's wrong' because we would set alerts on our indicators
@@ -390,15 +403,17 @@ pursuit of 'data exploration', most of us don't want to become Magellan in order
 to see the effect of merging a PR.
 
 Unintentional changes are more pernicious, but they're equally important to
-understand. Helpfully, the actual process of detecting change works about the
-same for both. What is different about unintentional changes is that our context
-differs greatly. We know when we've deployed code and are watching it roll out;
-We usually have a theory we're trying to prove or disprove. Unintentional change
-happens when we least expect it, from vectors we're unlikely to predict. In
-these cases, we need workflows that are deliberately crafted in to quickly
-present accurate hypotheses, present relevant correlations, and let us compare
-differences in broad system state across arbitrary time windows using a blend of
-telemetry signals.
+understand. These unintentional changes can be the result of accidental
+dependency upgrades, emergent user behavior, certificate expiry, exercise of
+dormant code paths, and much more. Helpfully, the actual process of detecting
+change works about the same for both. What is different about unintentional
+changes is that our context differs greatly. We know when we've deployed code
+and are watching it roll out; We usually have a theory we're trying to prove or
+disprove. Unintentional change happens when we least expect it, from vectors
+we're unlikely to predict. In these cases, we need workflows that are
+deliberately crafted in to quickly present accurate hypotheses, present relevant
+correlations, and let us compare differences in broad system state across
+arbitrary time windows using a blend of telemetry signals.
 
 It's actually very straightforward if you think about it -- the big story about
 observability has a lot more to do with how you think about monitoring than
@@ -409,3 +424,8 @@ interact with your telemetry data -- it turns you from being a statistician into
 a troubleshooter. It democratizes both data, and outcomes, so that everyone
 involved in a software business can understand how software health and business
 outcomes are interrelated.
+
+[^safetyWhitepaper]: For a more comprehensive discussion of Safety-I and
+    Safety-II, [this
+    whitepaper](https://www.england.nhs.uk/signuptosafety/wp-content/uploads/sites/16/2015/10/safety-1-safety-2-whte-papr.pdf)
+    provides a decent overview.
