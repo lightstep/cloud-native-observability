@@ -62,91 +62,9 @@ tend to sit somewhere in the middle of this scale -- for instance, one service
 talking to another via an RPC, or a server talking to a database in order to
 commit some change or read a value. These transactions tend to be "just right"
 in terms of monitoring granularity, because the act of observing transactions
-has a cost in terms of emitted telemetry.
-
-### Transaction Telemetry
-
-Nothing in life is free, as they say, and telemetry data can be quite costly.
-There's a fundamental tension in transaction observability; you want to generate
-as finely detailed telemetry as possible at the most granular level possible
-without negatively impacting runtime performance. This tension has lead to the
-proliferation of multiple telemetry formats, each suitable for differing needs.
-
-#### Traces
-
-Traces are a form of logging that include transaction-level context. This means
-that in a distributed system, a single trace will map to a single, logical,
-request. Spans represent logical steps being taken in the execution of that
-single transaction. A span can represent the work being done by an entire
-microservice, or one function call within that service; They're as broad or as
-granular as the author needs in order to capture the intent of a piece of code.
-
-> What about profilers?
->
-> It's true that you could write spans for every function execution, or even
-> every line of code in a service, but this is a poor use of your time and
-> effort. Think of observability as the 'satellite view' in Google Maps, where
-> you can zoom out from the entire planet and in to an overview of a few city
-> blocks. Any closer than that is more in the realm of debugging, where you're
-> trying to get very specific and detailed information about program execution.
-> In our Google Maps analogy, that'd be 'street view'.
-
-Individual spans are useful enough, giving you data and metadata about a
-transaction as it was processed by a service. Attributes such as user
-identifiers, database statements, source and destination IP addresses, service
-version identifiers, and much more can be encoded into a span. The real power of
-spans comes as they're combined into traces and aggregated -- you can view
-overall performance, while drilling down to a specific execution to see what
-took so long.
-
-#### Logging
-
-'Traditional' logging refers to the practice of emitting unstructured or structured
-text-based logs from application code in order to inspect transaction state,
-record exceptional circumstances, and preserve details of catastrophic service
-failure (such as crashes).
-
-These sort of logs are possibly the most common form of telemetry in use today,
-with dozens of open source and commercial solutions for generating, processing,
-indexing, and analyzing these logs. In addition, certain subsets of these logs
-are seen as valuable to security teams, who deploy their own suite of tooling to
-detect anomalies that could indicate system compromise by malicious actors.
-
-Modern observability requires a new approach to these log statements. We can't
-simply discard them out-of-hand, after all. Look to work being done in
-[OpenTelemetry
-Logging](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/overview.md)
-to enhance these traditional logs with context information, effectively
-'upgrading' them in order to provide correlation capability without requiring
-code changes. That said, for greenfield applications, I wouldn't recommend
-writing logs at all except for non-transactional work (i.e., setup, teardown,
-crashes) and use spans and span events to capture the same type of information
-that you may normally put into a log.
-
-#### Metrics
-
-Ah, metrics -- if logs are too heavy, and traces are too complex, then metrics
-have been the last refuge of the performance-minded engineer. The low cost of
-generating and storing time-series metrics has made it a crucial element of
-understanding transaction performance, as they allow us to easily perform visual
-correlation between events. If I deploy a new version at 2:00, and at 2:01 the
-memory consumption line starts increasing, or the transactions-per-second line
-starts decreasing, I've got a pretty good indication that something changed and
-it's not good.
-
-... Or, is it?
-
-Metric summaries tend to lack context about what's going on in fine detail.
-Trying to capture specific, service or instance level details can lead to
-[cardinality explosions](https://www.robustperception.io/cardinality-is-key). An
-even simpler, and more pernicious, failing of transaction metrics is that they
-can just be [confusing](https://www.robustperception.io/on-the-naming-of-things)
-to interpret based on the metrics library, metric name, aggregation strategy,
-etc. Because of these challenges in metric generation, they tend to be underused
-in transaction reporting -- either you generate some summaries about
-p50/75/90/99 latency from ancillary parts, like your API or DB layer and use
-that as a proxy for transaction health, or you're creating 'business' metrics
-based off of DB counts or simple counters.
+has a cost in terms of emitted telemetry. This is why observing transactions
+requires a variety of telemetry signals, which we'll discuss in the [next
+chapter](./03%20-%20anatomy-of-observability.md).
 
 ### Addressing Complexity
 
@@ -210,72 +128,10 @@ it's "site reliability" not "app reliability"), but much of it is because our
 reliability model can't accurately capture or model the interactions between
 transactions and resources.[^reliabilitySidebar]
 
-### Resource Telemetry
-
-Resources, like transactions, have telemetry signals we can monitor and inspect
-to understand the state of our system.
-
-#### Resource Metrics
-
-The holy grail of resource monitoring, the noble time-series metric. We talked
-about metric summaries for transactions before, but resources are really where
-metric instruments shine. Much of the way we talk about resources can be
-modelled effectively by metrics; A disk is full, or it's empty, that's something
-we could use a gauge to understand. Memory that's used vs. free is a
-multi-variate line plot.
-
-The problem is one of comprehension more than anything else when it comes to
-resource metrics. Our resources almost
-[certainly](https://kubernetes.io/docs/concepts/cluster-administration/system-metrics/)
-[produce](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html)
-[a](https://github.com/cloudfoundry/mysql-monitoring-release/blob/master/docs/list-of-metrics.md)
-[cornucopia](https://kafka.apache.org/documentation/#monitoring)
-[of](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html)
-[metrics](https://www.ibm.com/docs/en/spectrum-scale/5.0.0?topic=metrics-linux),
-and the explanation and usage of these isn't something that's always easy to
-comprehend. You need to know what metric you're interested in, what that metric
-means, and how it's connected to underlying transactions.
-
-For resource metrics to be really valuable to an observability system, they need
-to be attributable to the _transactions_ that they're generated by.[^useMethod]
-
-#### Logging and Spans
-
-Resources tend to produce a lot of logs as well, but the utility of these logs
-varies greatly. Unlike transactions, resource logs tend to not happen within a
-specific transaction context. Either they're related to the lifecycle of a
-resource -- startup, shutdown, and so forth -- or they're the second or third
-order effect of a transaction. A lower-level resource component might log
-actions that occur due to transaction faults, but if those faults are at a
-higher level of the stack, then the logs might not be terribly useful.
-Conversely, lower-level failures can bubble up and have a deleterious impact on
-transaction performance -- consider failures to scale a Kubernetes workload due
-to underlying failures in growing a node pool.
-
-Let's talk about spans here as well. There aren't a ton of them for resources!
-Some of this is because transactions, generally, don't interact with _specific_
-resources, but instead treat resources as abstractions. This means that for the
-most part, a resource isn't going to act with context -- or, if resources are
-changing as part of a request, then that change is going to be self-contained
-and/or the impetus for that change isn't necessarily in response to a specific
-user-generated transaction.
-
-> **Ok, but what about...**
->
-> An interesting sidebar conversation can be had about systems which do make
-> resource changes in response to explicit user requests, like provisioning a
-> new virtual machine or container in response to uploading some code or
-> building an account. These systems obviously exist -- in these cases, there's
-> a pretty logical boundary between the transaction and the resource (at
-> whatever abstraction proxies commands between your service and the underlying
-> resource request). That said, even in this scenario, there's resources that
-> support the transaction itself and aren't logically connected to the explicit
-> user request, and behave like you'd expect in this model.
-
 ### Layered Dependencies
 
-As alluded to in the sidebar, the line between resource and transactions can be
-a bit blurry. Transactions can manipulate resources, resource faults can modify
+The line between transactions and resources can get a bit blurry. Transactions
+can manipulate resources, resource faults can modify
 the flow of transactions. These aren't necessarily two frictionless,
 non-interactive spheres. Let's illustrate through an example.
 
@@ -388,6 +244,3 @@ and understand these changes.
     ) failure injection pipeline that allows for individual faults to be bubbled
     into backend systems. That said, I would advance that Chaos Engineering is
     still somewhat niche outside of the most sophisticated teams.
-[^useMethod]: Prior work here includes the [USE
-    Method](https://www.brendangregg.com/usemethod.html) which analyzes
-    the saturation of components to help identify systematic bottlenecks.
