@@ -53,6 +53,14 @@ single, logical request through a distributed system. A trace is comprised of
 multiple spans, where each span represents a logical unit of work executed as a
 part of the transaction.
 
+All of these signals share a few commonalities -- they comprise some sort of
+message or value, and a collection of metadata. The message varies based on
+signal type; Logs emit a string of human-readable text, metrics contain a
+number, and traces emit the duration and name of work performed. The metadata
+tends to be similar in nature if not specifics -- everything from host names,
+source or destination IP addresses, customer identifiers, version numbers, and
+much more.
+
 While transactions and resources can both emit any of these signals, there are
 some that make more sense than others. The following table illustrates a few
 examples of this:
@@ -144,8 +152,36 @@ braid of data.
 We'll address the exact mechanisms by which this data can be generated in the
 [next chapter](./04%20-%20telemetry-creation-and-otel.md), but I want to bring
 it up here before we start talking about what _good_ telemetry looks like.
-As mentioned above, it's not enough to just be correct or accurate, you need to
-be both.
+As mentioned above, it's not enough to just be correct or accurate or
+descriptive -- you need to achieve all of these simultaneously. It's certainly
+true that all of the telemetry signals we previously discussed are convertible
+-- you can turn a log file into a stream of metrics, for example. However, this
+fails the other part of our equation, as adding processing delays for telemetry
+conversion fails to make it available quickly to operators. Fundamentally,
+though, **these signal types are just telemetry sugar**. Traces are a structured
+form of logging, metrics can be generated from aggregate trace analysis, and
+logs are just text-based metrics of state. Once we stop thinking of these
+signals as independent from each other, or as driving unique and siloed analysis
+experiences, then we can start to imagine different possibilities.
+
+Later chapters will dive more deeply into this topic, but I want to preview them
+here in order to frame the rest of this discussion. Some readers may ask why we
+spend so much time on these individual signals but at the same time seem to
+eschew them by saying they're all 'the same' -- it's because without getting
+this part right, you're building on a foundation of sand. Here's some statements
+about what 'correct' telemetry generation can get you --
+
+* Accurate histograms and summaries generated from actual customer data rather
+  than synthetic testing.
+* Telemetry points that are automatically correlated through
+  associativity with their respective transactions rather than time-windowing.
+* Resource telemetry that can identify transaction dependency chains, such as
+  specific jobs on a queue that are blocked by upstream consumer lag.
+* Performance telemetry linked to user analytics, security analytics and logs,
+  or any other data source.
+
+> More information on telemetry resolution and other signals can be found in
+> [this appendix](./001%20-%20appendices.md#telemetry-resolution)
 
 ### Telemetry Quality
 
