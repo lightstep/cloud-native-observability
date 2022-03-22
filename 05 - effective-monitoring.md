@@ -2,23 +2,23 @@
 
 # Effective Monitoring
 
-Traditional monitoring looks a lot like youth soccer; Bursts of frenetic energy
-separated by long stretches of aimless plucking at blades of grass on a
-field[^pitch]. Sometimes you've got two kids over in the corner kicking at a
-dandelion they thought was the ball. Everyone gets orange slices and juice at
-the end of the day, and we all walk away from a game tired and wondering what
-the point was.
+Traditional monitoring looks a lot like
+['Safety-I'](./03%20-%20anatomy-of-observability.md#monitoring-and-alerting),
+a model of system reliability that focuses on measuring and preventing _errors_.
+This helps explain why most existing monitoring practices are characterized by
+an "error-centric" design -- we don't have a great way to quantify what we're
+monitoring, exactly, without looking at errors. You can see this manifest in the
+acronyms and statements we make about reliability -- mean time to resolution,
+root cause, etc. These are all error-centric, in that they focus on errors (and
+the resolution of those errors) as the primary thing we should care about.
 
-These bursts of energy are incidents, of course -- production is down, the
-database is dying, VPs are starting to email us complaining about lost business.
-These moments, however, aren't the majority of the game; They're book-ended by
-the liminal space of 'monitoring', the act that supposedly tells us when to
-panic and when to rest.
-
-Cloud-native observability promotes a radical new concept of monitoring, one
-that moves us away from (as many) terror-inducing point failures and towards a
-more holistic flow of understanding and accepting failure as a natural
-consequence of operating complex and complicated systems.
+Cloud-native observability recognizes that errors and faults aren't something
+you can prevent, because they're a normal part of system operations. Instead, it
+seeks to redefine not only what we monitor, but _why_ we perform monitoring.
+Monitoring isn't something we can throw away in its entirety, human operators
+will always need the ability to inspect system state. What we need to change is
+the instruments we use to monitor that state, and the processes we use to make
+sense of it.
 
 ## Effective Dashboards
 
@@ -44,20 +44,40 @@ events (such as the weather or road condition). Kafka[^dashboardOther]
 dashboards, on the other hand, are completely disconnected from the transactions
 that they are being used for. As a shared resource, the dashboard for Kafka will
 invariably intermingle data from multiple transactions, making it difficult to
-pinpoint failures or give actionable feedback to operators on _why_ things are happening.
+pinpoint failures or give actionable feedback to operators on _why_ things are
+happening.
+
+> **Design and Dashboards**
+>
+> Another crucial distinction between vehicular (plane, automobile, etc.)
+> dashboards and software ones is that the vehicle dashboards are designed very
+> specifically to be used while the vehicle is in _motion_. Items are displayed
+> using distinct pictograms, with consistent color coding and placement (such as
+> using yellow or red to impart meaning -- 'check engine' is a yellow alarm,
+> 'parking brake' is a red one), and very little continuous wear information. A
+> vehicle's TPMS (Tire Pressure Monitoring System) is usually in a sub-menu or
+> on an infotainment display, for example. Explicitly, these dashboards are
+> oriented around _what you need to know to operate the vehicle safely at any
+> given moment_. This fundamental design distinction separates them from
+> software dashboards, which often intermingle continuous health or state
+> reporting with active status indicators, forcing operators to familiarize
+> themselves with "what matters in an emergency" vs. "what matters when things
+> sound weird". There's a difference between knowing if something is broken, and
+> figuring out why it's broken, and our dashboards usually don't support this.
 
 This fundamental mismatch isn't something that can necessarily be corrected by
 'better' dashboards, it requires rethinking what we actually use them for, and
-what we should be looking at. Most of the dashboards that are in use today for
-software are too low-level for continuos monitoring; They simply say too much at
-once, and don't provide needed context for teams trying to operate cloud-native
-software.
+what we should be looking at. Currently, software dashboards look a lot like the
+internal diagnostics display for a vehicle -- crammed full of hundreds or
+thousands of data points that are both difficult to interpret without expertise
+_and_ lacking the context and high-level guidance required for operators to
+quickly and accurately identify the source of system failures.
 
 Cloud-native observability would suggest that in lieu of these detailed,
 diagnostic dashboards, our primary dashboard becomes one that's full of Service
-Level Objectives. These SLO's provide useful and actionable feedback to
+Level Objectives. These SLOs provide useful and actionable feedback to
 operators on _what's happening_, based on the actual business goals that our
-software is trying to achieve. With dashboards of SLO's, we can immediately
+software is trying to achieve. With dashboards of SLOs, we can immediately
 understand the actual health of our transactions and understand how service
 health is impacting wider objectives. These dashboards make it immediately
 obvious as to the state of a system, not to mention letting us know how much
@@ -85,7 +105,7 @@ Alerts should be:
 * Actionable (I can make a change to resolve this alert)
 * Specific (This alert is tied to a logical resource or transaction, or
   aggregation thereof)
-* Permanent (Without intervention, this state will continue)
+* Permanent (Without intervention, this state will not improve)
 
 Non-actionable alerts are the bane of on-call rotations (especially transient,
 non-actionable alerts). Being paged because something's broken that you can't
@@ -103,7 +123,7 @@ Often, a 'bad' alert can be made 'good' through better targeting/scoping, but
 you should also be fairly liberal with turning off or muting
 alerts[^mutingAlerts] and seeing how things go.
 
-## Fantastic SLO's and Where To Find Them
+## Fantastic SLOs and Where To Find Them
 
 Both of the above sections are written with the implicit and explicit idea that
 you're using SLOs as the primary method of understanding reliability. There's a
@@ -112,14 +132,14 @@ only quantifying reliability, but also for communicating that reliability to
 others. You'd do well to do some [more
 reading](https://www.alex-hidalgo.com/the-slo-book) about this topic, because
 it's honestly too big to cover in its totality here. That said, we want to take
-this opportunity to discuss how SLO's fit into this bigger observability
+this opportunity to discuss how SLOs fit into this bigger observability
 picture, and just why you should be adopting them.
 
 A good SLO means something, and it's a way to distill multiple functional
 aspects of a software system into a convenient shorthand. The reason you should
 be monitoring SLOs is because the SLO ties _meaningful user experiences_ back to
 your team. What's another way to phrase a 'meaningful user experience'? It's a
-transaction, of course! This is why SLO's map so well to observability, because
+transaction, of course! This is why SLOs map so well to observability, because
 the thing we actually care about measuring is the same between them. A SLO
 should measure the aggregate health of a particular type of transaction and give
 you at-a-glance knowledge about how that transaction is operating in production.
@@ -127,7 +147,7 @@ This dramatically simplifies your monitoring workflow, as you're freed up to
 focus on what matters instead of slapping down flapping alerts or staring at
 stale dashboards.
 
-Even better, since SLO's tie these transactions to business goals and
+Even better, since SLOs tie these transactions to business goals and
 objectives, they're powerful tools to democratize reliability across an
 organization and its customers. Incidents, especially a glut of them, tend to
 shake confidence in products -- even amongst coworkers. Broadly communicated
@@ -137,9 +157,7 @@ in products by demonstrating how the software relates to specific business
 objectives. As the business grows and changes, so too do your SLOs, always
 evolving to meet new challenges and opportunities.
 
-For more reading on SLO's, see [Effective SLO's](./effective-slo.md)
-
-[^pitch]: Or 'pitch', for our non-American friends.
+For more reading on SLOs, see [Effective SLOs](./07%20-%20effective-slo.md)
 
 [^dashboardOther]: Or 'Kubernetes', or any other sufficiently complex resource.
 
