@@ -7,10 +7,10 @@ need high quality signals that contain rich metadata, tooling that aids in the
 collection and processing of those signals, and APIs that are flexible enough to
 integrate into a wide variety of resources.
 
-While this might sound obvious, it's been a strictly aspirational goal for many
-years. Historically, everyone just kinda does whatever makes sense based on
-whatever tools have the most acclaim for their language or tech stack. There's
-some fairly broad 'standards' -- [Apache
+While this might sound straightforward, it's been a strictly aspirational goal
+for many years. Historically, everyone just kinda does whatever makes sense
+based on whatever tools have the most acclaim for their language or tech stack.
+There's some fairly broad 'standards' -- [Apache
 Logging](https://httpd.apache.org/docs/2.4/logs.html) and
 [syslog](https://datatracker.ietf.org/doc/html/rfc5424) for logs,
 [statsd](https://github.com/statsd/statsd/blob/master/docs/metric_types.md) and
@@ -37,7 +37,8 @@ if all of your telemetry data is five minutes old by the time you see it because
 it had to be written to logs, translated into metrics, then batched up with a
 bunch of other reports and fed into a general database, you're gonna have a bad
 time actually trying to fight fires as you'll always be a few steps behind
-whatever's actually happening.
+whatever's actually happening -- or, worse, you're left wondering that a sudden
+lack of data is due to an outage or simply slow processing.
 
 Enter [OpenTelemetry](https://opentelemetry.io), a broadly-supported project
 backed by the cloud native community and a host of monitoring and observability
@@ -80,7 +81,9 @@ about that transaction. This means that telemetry creation should be something
 you think about as part of development rather than something that gets added in
 later. Imagine a world where you define the expected state of a transaction by
 implementing it as a trace, then you know you're done when the expected trace
-and the actual one match!
+and the actual one match! White-box instrumentation allows for engineers to
+define their intended system state then validate that production matches up with
+this definition.
 
 The second point requires a bit more nuance. What does 'one step away' mean? In
 practical terms, it means your telemetry code shouldn't necessarily live with
@@ -137,6 +140,21 @@ Probably not -- as the project stabilizes and matures, more work will go into
 the end-user experience, and it'll become easier to use for non-integrators as
 well. That said, the original goal is still the goal; OpenTelemetry should be a
 checkbox, something that just exists in the background.
+
+> **Is OpenTelemetry Right For Me?**
+>
+> Some readers may come upon the prior section and question if OpenTelemetry is
+> the right answer for smaller projects, or toy ones. I'm not sure this is the
+> right question to ask, necessarily. OpenTelemetry isn't doing a lot of stuff
+> that's entirely _new_, after all -- the signal primitives it exposes have been
+> used for many years. If I had to compare it to something, it'd be LXC
+> Containers in terms of maturity -- it combines a lot of things that make sense
+> to have together in a single place in the hope to spur adoption of the
+> underlying format and concepts. Perhaps OpenTelemetry is waiting for its
+> Docker equivalent, a friendlier API for using and deploying it? I would
+> suggest that learning OpenTelemetry and implementing it for even smaller
+> applications is useful and worthwhile as it helps you learn thoughtful
+> practices around telemetry creation and annotation.
 
 With this in mind, it's easier to see how OpenTelemetry solves the
 instrumentation challenges posed in the last section. If it simply exists in
