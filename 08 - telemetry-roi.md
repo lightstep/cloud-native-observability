@@ -247,13 +247,13 @@ often they're queried. A potential implementation of this sampler follows:
 
 ```mermaid
 stateDiagram-v2
-    Service --> Signal;
-    Signal --> Collector;
-    Sampler --> LRUCache;
-    topKSearches --> LRUCache;
-    LRUCache --> Sampler;
-    Collector --> Sampler;
-    Sampler --> Output;
+    Service --> Signal
+    Signal --> Collector
+    Sampler --> LRUCache
+    topKSearches --> LRUCache
+    LRUCache --> Sampler
+    Collector --> Sampler
+    Sampler --> Output
 ```
 
 As signals are batched and processed by our collector, sampler configuration is
