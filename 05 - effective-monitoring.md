@@ -129,11 +129,21 @@ Both of the above sections are written with the implicit and explicit idea that
 you're using SLOs as the primary method of understanding reliability. There's a
 reason for this -- they're an incredibly powerful and effective tool for not
 only quantifying reliability, but also for communicating that reliability to
-others. You'd do well to do some [more
-reading](https://www.alex-hidalgo.com/the-slo-book) about this topic, because
-it's honestly too big to cover in its totality here. That said, we want to take
-this opportunity to discuss how SLOs fit into this bigger observability
-picture, and just why you should be adopting them.
+others. SLOs encapsulate another important property, and that's an acceptance of
+errors. As discussed in the introduction to this chapter, traditional monitoring
+approaches view errors as an exceptional case to be avoided -- this outlook
+doesn't reflect reality. Even if you assume your system to be perfect and free
+of bugs, there's things you can't control which can introduce errors through
+emergent behavior or unexpected interactions. SLO-based monitoring frees us up
+to treat errors as room for experimentation and improvement.
+
+SLOs are a complex topic, with more nuance and detail than have been levied
+here. They can appear as somewhat scary, I think -- you'll start to run into a
+lot of fancy-looking math which can be a turn-off. If you'd like a much more
+in-depth discussion, [Alex Hidalgo's
+book](https://www.alex-hidalgo.com/the-slo-book) is a rather comprehensive
+introduction and analysis of the topic. That said, we can summarize the benefits
+of SLOs here, and how they fit into the bigger picture of cloud-native observability.
 
 A good SLO means something, and it's a way to distill multiple functional
 aspects of a software system into a convenient shorthand. The reason you should
