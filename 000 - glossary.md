@@ -8,9 +8,8 @@ this guide.
 _Telemetry_: A stream of data, either human or machine readable, that
 communicates the internal state of an application or device.
 
-_Observability_: A collection of tools and practices that leverage multiple
-streams of telemetry data in order to answer questions about system state and
-health.
+_Observability_: The ability to use system feedback in order to understand a
+process or system, and the work needed to extract meaning from that feedback.
 
 _Distributed System_: A system that's characterized by its components
 being split up across multiple distinct computers on a network.

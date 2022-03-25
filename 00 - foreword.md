@@ -1,41 +1,47 @@
-![The Complete Guide to Cloud-Native Observability](./img/header.png)
+![Foreword](./img/00_header.png)
 
-<!-- TODO: Create 00 - Foreword header -->
-# The Complete Guide to Cloud-Native Observability
+# Foreword
 
-Over the past five years, the concept of
-[observability](https://lightstep.com/observability/) has gone through a
-sustained hype cycle. From being a niche concept bandied around by academicians
-in discussions of control theory, to an emerging market of next-generation
-software monitoring tools, to utter confusion and co-option as incumbent,
-insurgent, and newly-minted companies alike scrabble to lay claim to the crown
-of 'observability solution'.
+What is observability? It seems like this should be a settled question after
+over five years of sustained hype, millions of dollars of marketing, dozens of
+companies of various sizes selling observability products, and an expansive
+landscape of open source software in the field.
 
-A couple of years ago, we wrote a [pretty exhaustive
-report](https://go.lightstep.com/rs/260-KGM-472/images/observability-guide.pdf)
-about this topic -- what observability was, what distinguished it from existing
-monitoring solutions, and its benefits to developers. Since then, there's been a
-few important developments, and a surprising amount of new entrants, both large
-and small. With that in mind, we decided to put our heads together, do some
-research, and create an updated resource for the cloud-native community and
-anyone else that wonders "what the heck is observability, anyway?"
+While academic definitions exist borrowing from safety studies, control theory,
+cognitive systems engineering, and more, there's still an identifiable gap
+between 'observability-as-defined' and 'observability-as-practiced'. This has
+been exacerbated by the voluminous marketing budgets of both incumbent and
+insurgent developer tooling companies, presenting a challenge -- if
+observability feels so static as we preach it, why does it feel so unattainable
+in practice?
 
-Welcome, to **The Complete Guide to Cloud-Native Observability**.
+This report seeks to understand and answer that question, as well as several
+more. In lieu of being dictated, we're trying to find the answer to it together.
+To that end, you can think of what you're about to read as an 'open access'
+white paper. Our goal is to present an opinion on what observability --
+specifically, observability for cloud-native systems -- is, and where it should
+go. Rather than accept the status quo definitions, we would like to build
+something new, and build it in a collaborative way.
 
-## Who Is This For?
+Much of this report assumes some familiarity with the basics of cloud-native
+software and systems, although we try to keep it rather light. We're expressing
+a vision, not a blueprint, and visions aren't that useful if you can't interpret
+them. Important concepts are introduced and explained in-line where possible,
+although please refer to the [glossary](./000%20-%20glossary.md) if there's
+something you don't understand.
 
-Our intention is that the reader is broadly familiar with the current concepts
-and practices around observability, and the jargon associated with it. A
-[glossary](./glossary.md) is provided to aid in defining terms, but we don't
-spend a ton of time going in-depth on concepts like sampling, traces,
-aggregation, etc. The reader is expected to have a passing familiarity with
-these.
+Finally, this project isn't meant to just be a stand-alone report to be written
+and then rot. This is meant to be a collaborative exercise, created and iterated
+on in public. If you find something you disagree with, [open an
+issue](https://github.com/lightstep/cloud-native-observability/issues/new) and
+let's discuss it. Do you have a personal story that aligns with something we're
+talking about? Let us know, add an [appendix](./001%20-%20appendices.md). We
+gladly welcome case studies and anecdotes about the success and failures of
+current observability practice.
 
-The goal of this document is to advance an _opinion_ about how we should be
-thinking about, and building, observability systems. We don't want to do it
-alone, though, and we don't think that it's helpful for us to prognosticate in
-an ivory tower and then plop out a PDF with our thoughts. The reason that this
-is on GitHub is expressly so we can get comments, contributions, and changes
-from the entire observability world; practitioners, implementors, advocates,
-community leaders, whoever. This vision shouldn't just be any one of our's
-vision, it should be all of ours vision.
+I hope this report acts not only as an impetus and inspiration to the entire
+observability community, but that the way in which we build it can act as a
+model as well. Let's figure out where we want to go, then go out and build it.
+Please, contribute to this journey, and let's go together.
+
+@austinlparker 3/25/22
