@@ -28,20 +28,7 @@ cloud-native software at scale.
   issue](https://github.com/lightstep/cloud-native-observability/labels/good%20first%20issue)
 * Giving us a star and sharing the repository!
 
-This project is in a _draft_ state. We are actively refining, polishing, and
-iterating on the content. Our goal is to spend March 2022 doing refinement, then
-make it generally available in April 2022.
-
-## What We're Looking For
-
-Currently, we would appreciate feedback (either via issues or pull requests) in
-the following areas:
-
-* Overall structure and flow of the document.
-* Overall comprehension of the text/themes.
-* Un-defined, under-defined, or over-defined themes/concepts/terms.
-* General feedback on the ideas.
-* Illustrations and explanatory diagrams.
+You can also view the [release cadence](./CONTRIBUTING.md#release-cadence)
 
 ---
 
@@ -97,7 +84,10 @@ for more.
 
 ## Special Thanks
 
-This guide is made possible thanks to [Lightstep](https://lightstep.com).
+This guide is made possible thanks to [Lightstep](https://lightstep.com). We'd
+love for you to check out our report on [how OpenTelemetry drives the future of
+observability](http://go.lightstep.com/register-oreilly-future-of-observability.html)
+as a companion to this whitepaper.
 
 ---
 
