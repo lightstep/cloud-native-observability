@@ -23,8 +23,13 @@ This is why our observability tools all kinda look the same if you turn your
 head and squint; The market forces optimization around 'table stakes' features
 such as query builders and visualizations, creating a dilemma for new entrants
 -- buyers don't want different unless you can prove that different will save
-them money in the short term. This has lead to a great stagnation, where
-innovation is leashed to short-term financial incentives, benefiting nobody.
+them money in the short term. Users are also trapped by this, as existing
+tooling requires a great deal of intuition and 'muscle memory' gained through
+repeated use. Change becomes scary, as it asks you to throw away that learned
+expertise and control. This fear doesn't just stagnate innovation in products,
+but the entire toolchain; Innovating around new query languages, workflows,
+and signals has become leashed to short-term financial incentives to the benefit
+of nobody.
 
 Cloud-native observability asks us to rethink this and to separate out
 investigation from monitoring, to really consider it as a standalone function.
@@ -40,10 +45,16 @@ identify what changed, why it changed, and how it's impacting reliability and pe
 The most challenging thing in any post-hoc (or real-time) investigation of an
 incident is establishing context. We need to know the status of tens, hundreds,
 or thousands of dependent and independent variables in order to accurately
-reconstruct a mental model or reproducible sample of our failure. This presents
-several challenges in not only capturing a sufficiently detailed snapshot of
-system state and storing that snapshot for post-hoc analysis, but also in
-analyzing them in order to discover the specific changes that lead to an
+reconstruct a mental model or reproducible sample of our failure. This is the
+internal context (or state) of our transactions and resources. More difficult to
+capture, but also important to understand, is the _external_ context of our
+system which can be altered by everything from emergent user behavior,
+penetration testers exercising underutilized code paths, multiple teams making
+changes to shared resources or data structures, and much more.
+
+This presents several challenges in not only capturing a sufficiently detailed
+snapshot of system state and storing that snapshot for post-hoc analysis, but
+also in analyzing them in order to discover the specific changes that lead to an
 incident. Conventionally, this has meant making decisions about several
 tradeoffs between snapshot breadth, depth, and fidelity.
 
@@ -53,6 +64,10 @@ generation and disqualification, linked together by a shared request context.
 Additionally, point-in-time or periodic measurement of a resource's
 instrumentation carry enough data to allow for effective correlation between
 a specific (or aggregate) transaction and the underlying resource state.
+Conveniently enough, capturing this internal context allows us to reasonably
+disambiguate and filter out external contexts that don't matter at the moment --
+and in many cases, to quantify those external events so that we can build an
+understanding of states that tend towards failure.
 
 What's been missing here is a _lingua franca_ for associating transactional and
 resource telemetry together. OpenTelemetry solves this through it's context and
@@ -103,8 +118,8 @@ way you interact with an observability tool shouldn't necessarily be a query
 editor! It's certainly familiar, and it certainly has its place, but it sets us
 up to think in a certain way -- we see there's a problem, and we start digging.
 In lieu of this, we propose other 'observability primitives' such as service
-graphs, aggregate trace comparisons, and histograms be where we start, then
-drilling down and winnowing out possibilities from there.
+graphs, aggregate trace comparisons, and histograms or heat maps be where we
+start, then drilling down and winnowing out possibilities from there.
 
 The advantage of this winnowing process is that we don't have to rely on other
 people so much -- people that might be half a world away, or asleep, or busy
@@ -166,3 +181,6 @@ visualizations and a great query experience, it's about workflows that guide you
 up and down the relationship tree between your transactions and resources,
 giving you the ability to quickly prove (or disprove) hypotheses and answer
 questions about what caused a given change.
+
+[^cardinalityDef]: A discussion of cardinality can be found
+    [here](https://medium.com/lightstephq/the-two-drivers-of-cardinality-and-what-to-do-about-them-cbc109e662dd)
