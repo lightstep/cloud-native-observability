@@ -23,20 +23,20 @@ exponential improvements in experience.
 
 We argue that although change is hard, it is necessary, and it is also
 inevitable. Three pillars isn't a hard and fast law of the universe, it's a
-historical accident spurred by the existence of monitoring vendors; They
-themselves accidents of a lack of first-party monitoring tools and polyglot
-development practices. A fish might rot from the head, but ideology is
-reinforced from the bottoms-up, and the primary way three pillars approaches are
-institutionalized is through telemetry generation. If you rely on a proprietary
-agent to create telemetry and send it off somewhere, you're going to get the
-telemetry that is given to you. OpenTelemetry combats this directly, by
-recognizing the heavily commodified nature of these agents, and moving telemetry
-generation away from proprietary agents, towards direct integrations in
-libraries, managed services, orchestration platforms, and so forth.
+historical accident spurred by the existence of monitoring vendors. Many of
+these vendors only rose to preeminence due to a lack of first-party
+tooling for monitoring cloud workloads! A fish might rot from the head, but
+ideology is reinforced from the bottoms-up, and the primary way three pillars
+approaches are institutionalized is through telemetry generation. If you rely
+on a proprietary agent to create telemetry and send it off somewhere, you're
+going to get the telemetry that is given to you. OpenTelemetry combats this
+directly, by recognizing the heavily commodified nature of these agents,
+and moving telemetry generation away from them. It favors direct integration
+with libraries, managed services, orchestration platforms, and so forth.
 
-As OpenTelemetry becomes a de jure standard due to adoption in cloud-native
-technologies, the newly found freedom of developers to port their data to other
-analytical tools will act as a forcing function on the industry to modify their
+As OpenTelemetry becomes a widely adopted standard through usage in cloud-native
+tools and platforms, the newly found freedom of developers to port their data to
+other analytical tools will act as a forcing function on the industry to modify their
 products. This should lead to a period of intense competition and consolidation,
 as new entrants and incumbents alike are no longer 'safe' due to vendor lock-in.
 
@@ -44,7 +44,7 @@ as new entrants and incumbents alike are no longer 'safe' due to vendor lock-in.
 
 In this brave new OpenTelemetry world, should you buy or build? The answer
 depends on several factors. If we keep in mind that our telemetry data will be
-highly portable, then we see the formation of three general camps --
+highly portable, then we see the formation of three general camps:
 
 _Pure Builders_: Highly specialized applications of telemetry will always
 require highly specialized tooling that general-purpose tools won't provide.
@@ -62,6 +62,16 @@ will leverage paid solutions for their overall telemetry needs. Generally,
 they'll either be very small organizations that need to outsource expertise to a
 vendor, or extremely large ones that prefer OpEx over CapEx.
 
+Your organization's adherence to one of these camps should not be thought of as
+static. As your organization and observability practice matures, it would not be
+surprising to see pure buyers become mixed use, or to have platform teams
+embedded within them that act as pure builders. Taking a longer view, it's
+likely that the product landscape for observability will open up as well and
+you'll see more vendors offering point solutions to specific problems that mixed
+use or builders will encounter. While this behavior does exist today -- products
+such as Cribl or Edge Delta exist as pipeline middleware, for the most part -- I
+believe it's an emerging part of the observability marketplace.
+
 ## Organizing Effective Observability Through Centralization
 
 Successful adoption of observability requires some level of ownership in the
@@ -76,7 +86,12 @@ provides a minimum guarantee for everyone else, rather than trying to embed in a
 variety of disparate teams and dictate terms. Centralized teams can ensure
 that tooling and processes exist to give service owners easy integration into
 the observability stack, guarantees around data quality, dashboards and SLOs to
-plug into, and overall visibility into the greater system.
+plug into, and overall visibility into the greater system. In an existing
+organization, the observability team can perform the crucial act of creating
+uniform metadata mapping and standardization, as they will have the necessary
+visibility into everyone else's systems. Additionally, this standards-making
+activity is a natural starting point for them to discover pain points being
+experienced by the organization, informing what their next project(s) should be.
 
 In some organizations, this might be in the office of a CIO or CTO -- in others,
 a cloud center of excellence. Regardless of where it sits, there is a lot of
