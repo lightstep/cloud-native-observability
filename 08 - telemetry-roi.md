@@ -21,7 +21,7 @@ different cost management strategies, and where they should be applied.
 
 ## Costs Go Up, ROI Goes Down -- You Can Explain That
 
-You only have to look at financial data from major monitoring vendors to see that
+You only have to look at financial reports from major monitoring vendors to see that
 the people selling shovels are doing pretty well indeed. Organizations pay more
 than ever to collect even greater amounts of telemetry data each year. If this
 cost was linked to a linear scaling function -- as in, you pay more because you
@@ -103,10 +103,16 @@ Predictive telemetry also helps in capacity planning, not just for resources,
 but also for teams and organizations. Being able to predict future usage by
 analyzing historical patterns is one example of this, but by unifying our
 telemetry and our business data, we're able to improve our ability to forecast
-on-call rotations, hiring, and even the cadence of feature work. Democratizing
-access to this telemetry means these insights can come from anywhere in the
-organization, rather than being siloed by teams with limited visibility into the
-overall system health.
+on-call rotations, hiring, and even the cadence of feature work. This may come
+as a non-intuitive realization, as "slow is smooth, smooth is fast" is an
+oft-repeated canard, but this is a tactical vs. strategic distinction. Slower
+deployments and organizational agility introduces a higher likelihood of bugs
+because not only does the underlying technical system shift out from under you,
+so too does the _mental model_ of practitioners drift from reality. Being able
+to realize work in more granular chunks is the difference between plucking out
+a single Jenga brick from the tower versus grabbing a handful. As stated above,
+it's not just about technical insights. Democratizing our telemetry allows for
+tighter feedback loops across the entire organization.
 
 ## Cost Reduction Strategies
 
@@ -167,10 +173,10 @@ of demand. Traditional sampling methodologies rely heavily on "head-based" or
 client-based sampling rates, where originators of transactions define a given
 ratio of transactions to be traced or logged (such as 1-in-10, 1-in-100, etc.)
 and only recording transactions that meet that demand. This approach leaves
-something to be desired, as outliers can be easily missed. Further developments
-have introduced heuristic-based approaches, that override sampling rates based
-on indicators of state, such as prioritizing collection of errors or other
-faults in the final sample.
+something to be desired, as outliers or deep errors can be easily missed.
+Further developments have introduced heuristic-based approaches, that override
+sampling rates based on indicators of state, such as prioritizing collection of
+errors or other faults in the final sample.
 
 In general, cloud-native observability places more value on dynamic sampling
 approaches rather than static ones. The key difference is where this sampling is
@@ -184,19 +190,22 @@ decision about a group.
 While these approaches have value, there's still a lot of confusion and further
 work needed. Static sampling is too proactive, dynamic sampling can be too
 reactive. The key innovation required is moving sampling 'up' a layer, from
-generation or collection to ingestion. If sampling decisions become less about
+generation or collection to ingestion through observability pipelines.
+If sampling decisions become less about
 'what's generated' and more about 'what's persisted', then these decisions can
 be made in the full context of not only a transaction, but also overall resource
 state. This means the knobs and levers for controlling sampling will need to
 move as well, away from low-level configuration in code, and towards management
 planes and analysis tools that can control and report on the current level of
-sampling at a process, cluster, or system level.
+sampling at a process, cluster, or system level. Much of the work that exists in
+this field is highly domain-specific and has only been implemented as part of
+platform engineering efforts at large software companies.
 
 ### Aggregation
 
 The other major lever to control steady-state telemetry costs is the aggregation
 of telemetry data. Sampling controls the flow of data into our observability
-pipeline, and thus our ingress costs -- Aggregation is our lever to control
+pipeline, and thus our egress costs -- Aggregation is our lever to control
 long-term storage costs. For the most part, solutions here are rather
 non-controversial, but many of them aren't in wide use.
 
@@ -218,3 +227,44 @@ Observability platforms that are aware of multiple forms of telemetry can,
 in response to operator requests or heuristic-based algorithms, dynamically
 adjust aggregation and persistence rates and methodologies based on desired
 recall times, storage constraints, or numerous other factors.
+
+### Intelligent Sampling in Example
+
+Our discussion of ROI has been long on theory and, perhaps, short on solutions.
+To ameliorate this, we present a proposed model and architecture for dynamic
+sampling and aggregation. This model makes the following assumptions:
+
+* Telemetry data that has been used in the past will continue to be useful in
+  the future.
+* Certain types of signals are more valuable than others in certain situations,
+  and we can teach a computer what those situations are.
+* The true value of any signal or instrument can only be discovered through
+  refinement.
+
+With these assumptions in mind, how would we implement a system to achieve them?
+Let's take our first example, a naive sampler that retains signals based on how
+often they're queried. A potential implementation of this sampler follows:
+
+```mermaid
+stateDiagram-v2
+    Service --> Signal;
+    Signal --> Collector;
+    Sampler --> LRUCache;
+    topKSearches --> LRUCache;
+    LRUCache --> Sampler;
+    Collector --> Sampler;
+    Sampler --> Output;
+```
+
+As signals are batched and processed by our collector, sampler configuration is
+dynamically updated by requesting the most frequent queries from our query
+engine and using those to fill a least-recently-used cache. Signals with
+attributes that are queried more often will be preserved, ones that are queried
+less often or never are deleted.
+
+Further refinements to this process could result in the application of ML to
+this feedback loop, allowing for new telemetry attributes and signal 'shape' to
+be compared to operator feedback about signals that "worked" in investigative
+workflows, and training our sampler off that. This requires a rather deep
+integration between our investigative workflows and our observability pipeline
+itself.
