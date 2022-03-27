@@ -12,8 +12,8 @@ overview of cloud-native observability.
 
 **Why is that important?** Despite untold millions of marketing dollars spent in
 and around observability (or maybe _because_ of the untold millions of marketing
-dollars spent), cloud-native observability practice today is often shallow,
-siloed, or both. It doesn't need to be that way.
+dollars spent), cloud-native observability practice today is often inefficient,
+ineffective, or both. It doesn't need to be that way.
 
 **Who is this for?** Observability practitioners, SRE's and DevOps engineers,
 end-users of observability systems, and anyone involved in building and running
@@ -21,7 +21,7 @@ cloud-native software at scale.
 
 **How can you help?** You can contribute in several ways --
 
-* Adding your stories and learnings to an appendix.
+* Adding your stories and learnings to [the "Real World Examples" directory](./real_world_examples/README.md)
 * Helping refine and shape this repository through
   [contributions](./CONTRIBUTING.md)
 * Tackling a [good first
@@ -29,8 +29,7 @@ cloud-native software at scale.
 * Giving us a star and sharing the repository!
 
 This project is in a _draft_ state. We are actively refining, polishing, and
-iterating on the content. Our goal is to spend March 2022 doing refinement, then
-make it generally available in April 2022.
+iterating on the content.
 
 ## What We're Looking For
 
@@ -97,7 +96,7 @@ for more.
 
 ## Special Thanks
 
-This guide is made possible thanks to [Lightstep](https://lightstep.com).
+This guide is made possible thanks to salary-paying by [Lightstep](https://lightstep.com).
 
 ---
 
