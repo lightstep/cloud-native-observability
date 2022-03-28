@@ -13,7 +13,7 @@ thousand developers, but how do we get thousands of developers to collaborate
 efficiently on a single piece of deployable software?
 
 Here's the thing: we don't! Instead, we split these massive, strategic software
-applications into pieces – aka, "microservices" – and use cloud-native devops
+applications into pieces – aka, "microservices" – and use cloud-native DevOps
 practices and cloud-native technology stacks to develop, deploy, and operate
 them. At the same time, we want to get out of the business of procuring,
 maintaining, or even _thinking_ about hardware, so all of the above happens in
