@@ -20,22 +20,6 @@ want to get out of the business of procuring, maintaining, or even _thinking_
 about hardware, so all of the above happens in hosted infrastructure run by
 multiple cloud vendors.
 
-## What is 'The Cloud'?
-
-The cloud is more than just "servers on demand", it represents a fundamental
-shift in how we operate software. It allows us to get out of the business of
-thinking about hardware by turning computing resources into a _utility_, similar
-to public electricity or water. These resources run the gamut -- servers on
-demand, yes, but also speech recognition, planet-scale databases, practically
-infinite storage, and much more.
-
-What makes the cloud special is its elasticity and it's programmability. You can
-scale a cloud application from one, to hundreds, to hundreds of millions of
-users with little additional effort. You can also do this without relying on
-human beings to rack servers or push buttons via programmatic automation.
-That said, this potential requires new architectures and strategies to fully
-realize its potential, and that's where cloud-native software comes into play.
-
 ## So what is "Cloud-Native" exactly?
 
 Cloud-native software is not the same thing as "production software that's
@@ -56,7 +40,7 @@ follows](https://glossary.cncf.io/cloud_native_tech/#what-it-is):
 > approach.
 
 Ironically, some cloud-native apps don't even run in the cloud! A
-Kubernetes-based app with hundreds of microservices running on premises is more
+kubernetes-based app with hundreds of microservices running on premises is more
 "cloud-native" than a lift-and-shift Oracle business application running in
 AWS.
 
