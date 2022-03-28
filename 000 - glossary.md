@@ -18,7 +18,7 @@ _Instrumentation_: Code that exists to emit telemetry signals to some external
 system or endpoint. For example, a logging statement or a metric instrument.
 
 _Observability_: The ability to both understand and reason about the behavior
-of a software system without needing to make *changes* to that software system.
+of a software system without needing to make **changes** to that software system.
 In practice, observability requires both high-quality telemetry and
 high-quality observability tooling.
 
