@@ -61,4 +61,3 @@ effect as a global workforce moved from offices to work-from-home, and
 [Zoom](https://www.zoom.com) became the lifeline for our personal and
 professional lives. It's hard to imagine the future without the cloud, but it's
 even harder to imagine the present.
-
