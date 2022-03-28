@@ -19,12 +19,27 @@ them. At the same time, we want to get out of the business of procuring,
 maintaining, or even _thinking_ about hardware, so all of the above happens in
 hosted infrastructure run by multiple cloud vendors.
 
-<!---
+## What Is Cloud-Native?
 
-TODO: Short ##-level section that clearly defines *what* cloud and cloud-native
-actually are.
+The cloud represents a fundamental shift in computing. In the same way that
+public utilities revolutionized the production of goods and services, the cloud
+provides on-demand resources to individuals and organizations around
+the world. This approach removes barriers to innovation and feature delivery not
+only for development teams but for an entire organization.
 
---->
+More than simply 'servers on demand', the cloud is defined by its elastic nature
+and programmatic access. This elasticity allows us to trade capital expenditures
+for operational ones, and this programmability allows us to scale far greater
+than we would be otherwise able to. However, we cannot fully realize the
+potential of this new computing paradigm while continuing to architect our
+applications and organizations by the status quo. This where cloud-native comes
+into play.
+
+Cloud-native, or cloud-native software, is a particular architectural pattern
+that makes use of the unique characteristics of the cloud in order to accelerate
+innovation, increase reliability, and optimize performance. Cloud-native
+applications are designed to take advantage of the scalable and distributed
+nature of the cloud.
 
 ## Why Cloud-Native Matters
 
