@@ -60,7 +60,7 @@ As discussed in the SLO chapter, modern organizations collect and capture
 unthinkable volumes of data about their processes and systems for analysis and
 decision-making. Different stakeholders each have their own telemetry desires --
 security teams demand access and flow logging, analysts demand usage and journey
-analytics, SRE's need high-fidelity resource and transaction telemetry. The data
+analytics, SREs need high-fidelity resource and transaction telemetry. The data
 stores and tools each of these roles require are often disparate and
 nonintegrated, leading to a need to either warehouse vast quantities of data or
 duplicate it to various endpoints. Managing this stream requires no small
