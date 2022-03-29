@@ -15,7 +15,7 @@ and around observability (or maybe _because_ of the untold millions of marketing
 dollars spent), cloud-native observability practice today is often inefficient,
 ineffective, or both. It doesn't need to be that way.
 
-**Who is this for?** Observability practitioners, SRE's and DevOps engineers,
+**Who is this for?** Observability practitioners, SREs and DevOps engineers,
 end-users of observability systems, and anyone involved in building and running
 cloud-native software at scale.
 
