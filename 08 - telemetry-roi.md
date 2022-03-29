@@ -135,11 +135,11 @@ enterprise applications (such as a large financial firm's electronic banking
 app). Different systems will have different requirements. How do we figure out
 what we need to keep and what we need to discard -- and how do we discard it, anyway?
 
-### SLO's and Deep Telemetry
+### SLOs and Deep Telemetry
 
 Determining how much data to generate and keep should be a derived function of
-the SLO's we set for a given transaction. This does mean that telemetry data
-requirements can fluctuate over time; After all, SLO's aren't set in stone, they
+the SLOs we set for a given transaction. This does mean that telemetry data
+requirements can fluctuate over time; After all, SLOs aren't set in stone, they
 can change and grow. That said, the amount of telemetry we need should always be
 in support of measurable semantic structures like an SLO. Don't collect data
 'just because' -- if you ain't using it, you don't need to keep it! Identify the

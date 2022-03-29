@@ -197,7 +197,7 @@ How do we make sense of this? How can we define reliability, quality, or even a
 basic understanding of what we require from each party involved in this whole
 mess? Our answer is in a couple of short acronyms.
 
-## SLI's and SLO's
+## SLIs and SLOs
 
 The Service Level Indicator (SLI) and Service Level Objective (SLO) have been
 popularized by the Site Reliability Engineering (SRE) movement, a practice which
@@ -211,7 +211,7 @@ customers and engineers, resources and transactions.
 
 An SLI is some quantitative measure of a service -- like request latency, error
 rate, or throughput. They are also measurements of a _transaction_, mid-stream.
-Another way to phrase this is that the combination of all relevant SLI's for
+Another way to phrase this is that the combination of all relevant SLIs for
 each sub-transaction in a transaction is the SLI of that transaction -- i.e., if
 my user-facing transaction has twelve steps and I sum the duration it takes for
 each step, I know the total duration. Indeed, instead of thinking about
@@ -225,8 +225,8 @@ It follows that the SLO becomes a contract between transactions and resources to
 define acceptable performance bounds, and thus the SLO is a contract between the
 customers and engineers themselves. Instead of thinking about observability as
 the ability to 'explore unknown unknowns' or 'quickly reduce search space during
-incidents', we can begin to think of it as a way to define and iterate on SLI's
-and use those to formalize SLO's with each other, setting and communicating
+incidents', we can begin to think of it as a way to define and iterate on SLIs
+and use those to formalize SLOs with each other, setting and communicating
 expectations between apps and servers, transactions and resources, customers and
 engineers, managers and employees, teams and organizations. The SLO becomes a
 mutually agreed upon instrument for talking about change, prioritizing work, or

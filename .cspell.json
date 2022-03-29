@@ -14,9 +14,9 @@
         "otel",
         "pprof",
         "runbook",
-        "SLI's",
-        "SLO's",
-        "SRE's",
+        "SLIs",
+        "SLOs",
+        "SREs",
         "Tayloristic",
         "TPMS",
         "Zipkin"
