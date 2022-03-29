@@ -12,7 +12,7 @@ Observability, then, isn't simply defined by the desired end state of
 "understanding a system by its outputs" (because there are no systems that can
 be controlled otherwise; a system without output is one that might as well not
 exist) -- it's a combination of tools and techniques, workflows and products,
-bound together with a shared language of SLI's and SLO's.
+bound together with a shared language of SLIs and SLOs.
 
 The building blocks of observability are pretty straightforward in this model --
 telemetry, persistence, and workflows; Each building on the other. Telemetry is
