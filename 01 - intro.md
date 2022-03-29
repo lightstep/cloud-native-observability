@@ -12,19 +12,53 @@ innovating and reliable software applications: it's easy enough to hire a few
 thousand developers, but how do we get thousands of developers to collaborate
 efficiently on a single piece of deployable software?
 
-Here's the thing: we don't! Instead, we split these massive, strategic software
-applications into pieces – aka, "microservices" – and use cloud-native DevOps
-practices and cloud-native technology stacks to develop, deploy, and operate
-them. At the same time, we want to get out of the business of procuring,
-maintaining, or even _thinking_ about hardware, so all of the above happens in
-hosted infrastructure run by multiple cloud vendors.
+Here's the thing: we don't! Instead, **to make software development scale, we
+split these massive, strategic software applications into pieces – aka,
+"microservices" – and use cloud-native devops practices and cloud-native
+technology stacks to develop, deploy, and operate them.** At the same time, we
+want to get out of the business of procuring, maintaining, or even _thinking_
+about hardware, so all of the above happens in hosted infrastructure run by
+multiple cloud vendors.
 
-<!---
+## What is 'The Cloud'?
 
-TODO: Short ##-level section that clearly defines *what* cloud and cloud-native
-actually are.
+The cloud is more than just "servers on demand", it represents a fundamental
+shift in how we operate software. It allows us to get out of the business of
+thinking about hardware by turning computing resources into a _utility_, similar
+to public electricity or water. These resources run the gamut -- servers on
+demand, yes, but also speech recognition, planet-scale databases, practically
+infinite storage, and much more.
 
---->
+What makes the cloud special is its elasticity and it's programmability. You can
+scale a cloud application from one, to hundreds, to hundreds of millions of
+users with little additional effort. You can also do this without relying on
+human beings to rack servers or push buttons via programmatic automation.
+That said, this potential requires new architectures and strategies to fully
+realize its potential, and that's where cloud-native software comes into play.
+
+## So what is "Cloud-Native" exactly?
+
+Cloud-native software is not the same thing as "production software that's
+hosted by a public cloud provider" – cloud-native software is characterized by
+software architecture and development practices that can scale linearly, even
+with thousands of developers or billions of end-users.
+
+The Cloud Native Computing Foundation defines Cloud-Native Technology [as
+follows](https://glossary.cncf.io/cloud_native_tech/#what-it-is):
+
+> Cloud native technologies, also referred to as the cloud native stack, are
+> the technologies used to build cloud native applications. These technologies
+> enable organizations to build and run scalable applications in modern and
+> dynamic environments such as public, private, and hybrid clouds, while
+> leveraging cloud computing benefits to their fullest. They are designed from
+> the ground up to exploit the capabilities of cloud computing and containers,
+> service meshes, microservices, and immutable infrastructure exemplify this
+> approach.
+
+Ironically, some cloud-native apps don't even run in the cloud! A
+Kubernetes-based app with hundreds of microservices running on premises is more
+"cloud-native" than a lift-and-shift Oracle business application running in
+AWS.
 
 ## Why Cloud-Native Matters
 
@@ -54,10 +88,10 @@ revolution](https://www.nytimes.com/2020/02/27/technology/cloud-computing-energy
 where computing power has gone up but energy use has gone down. Open source
 software, once regarded as a land of free-speech absolutists and cranks, has
 been commercialized and funded by the world's largest companies to build even
-more [cloud-native software](https://www.cncf.io), freely given to the next
-generation of developers to solve the challenges of today and tomorrow. The
-adaptive capacity and scaling benefits of the cloud were on display in full
-effect as a global workforce moved from offices to work-from-home, and
+more cloud-native software, freely given to the next generation of developers
+to solve the challenges of today and tomorrow. The adaptive capacity and
+scaling benefits of the cloud were on display in full effect as a global
+workforce moved from offices to work-from-home, and
 [Zoom](https://www.zoom.com) became the lifeline for our personal and
 professional lives. It's hard to imagine the future without the cloud, but it's
 even harder to imagine the present.
