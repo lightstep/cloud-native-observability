@@ -40,8 +40,7 @@ See [Resources](./02%20-%20customers-and-engineers.md#resources) for more
 information.
 
 _Microservice_: A service in a distributed system that generally handles a
-well defined and tightly scoped amount of work. These services are generally
-designed to be available over a network link. An example would be an
+well defined and tightly scoped amount of work. An example would be an
 authorization and authentication service.
 
 _SLA_: A Service Level Agreement, a contractual instrument between parties about
