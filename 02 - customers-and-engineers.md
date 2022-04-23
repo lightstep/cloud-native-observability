@@ -1,4 +1,4 @@
-![Chapter 2 - Customers and Engineers, Transactions and Resources](./img/ch2_header.png)
+![Chapter 2 - End-users and Engineers, Transactions and Resources](./img/ch2_header.png)
 
 # End-users and Engineers, Transactions and Resources
 
@@ -225,12 +225,12 @@ for those transactional SLIs.
 
 It follows that the SLO becomes a contract between transactions and resources
 to define acceptable performance bounds, and thus the SLO is a contract between
-the customers and engineers themselves. Instead of thinking about observability
+the end-users and engineers themselves. Instead of thinking about observability
 as the ability to 'explore unknown unknowns' or 'quickly reduce search space
 during incidents', we can begin to think of it as a way to define and iterate
 on SLI's and use those to formalize SLO's with each other, setting and
 communicating expectations between apps and servers, transactions and
-resources, customers and engineers, managers and employees, teams and
+resources, end-users and engineers, managers and employees, teams and
 organizations. The SLO becomes a mutually agreed upon instrument for talking
 about change, prioritizing work, or assessing reliability standards -- and
 observability becomes our way to monitor and understand these changes.
