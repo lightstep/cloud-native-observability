@@ -22,7 +22,7 @@ and make sense of it. Let's look deeper into each, starting with telemetry!
 
 ## Telemetry
 
-In the [prior chapter](./02%20-%20customers-and-engineers.md), we discussed
+In the [prior chapter](./02%20-%20end-users-and-engineers.md), we discussed
 three different telemetry signals that can be emitted by transactions and
 resources. These signals -- logs, metrics, and traces -- are sometimes referred
 to as the "three pillars" of observability. However, this is a misnomer borne

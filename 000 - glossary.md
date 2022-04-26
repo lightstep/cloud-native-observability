@@ -36,7 +36,7 @@ high-quality observability tooling.
 
 _Resource_: A finite and durable unit of computation, storage, or other work
 that is typically shared across many distinct transactions.
-See [Resources](./02%20-%20customers-and-engineers.md#resources) for more
+See [Resources](./02%20-%20end-users-and-engineers.md#resources) for more
 information.
 
 _Microservice_: A service in a distributed system that generally handles a
@@ -60,5 +60,5 @@ internal state of software services or infrastructure.
 
 _Transaction_: The input, output, and path of a single client's request in a
 cloud-native application, consuming resources along the way. See
-[Transactions](./02%20-%20customers-and-engineers.md#transactions) for more
+[Transactions](./02%20-%20end-users-and-engineers.md#transactions) for more
 information.

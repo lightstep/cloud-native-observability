@@ -23,7 +23,7 @@ The concept of 'data-driven' organizations has become rather en vogue over the
 past years. Driven in no small part by a bunch of businesses selling you data
 shovels, we're encouraged to collect and quantify increasingly fine-grained data
 about everything that happens in the course of doing business. Contacts with
-customers, logins and logouts, session lengths, what links people click in
+end-users, logins and logouts, session lengths, what links people click in
 email, who downloads reports or responds to targeted advertising, how often
 someone waits before asking for help, etc. This data obsession has also turned
 inwards, as companies track ever finer details of their development, marketing,
@@ -39,7 +39,7 @@ In fairness, there's a legitimate need to understand what's going on in the
 workplace, in order to better allocate and assign resources (like money) and
 people (like... people) to projects and initiatives.
 
-Let's compare that, then, to how we report on reliability to the customers of a
+Let's compare that, then, to how we report on reliability to the end-users of a
 service. It looks a lot like this:
 
 | Service Name | Status |
@@ -58,7 +58,7 @@ oft-repeated, possibly apocryphal, anecdote that marking certain AWS services as
 created equal, after all, and if nobody was impacted (that you know of) by an
 issue, well, did it really ever happen?
 
-SLOs avoid this trap by being directly tied to specific customer experiences
+SLOs avoid this trap by being directly tied to specific end-user experiences
 and communicating _expected_ availability ahead of time. This is something that
 everyone should understand; KPIs, OKRs, these all have built-in 'pressure
 relief' valves that state "hey this is the goal, but we don't expect it to be
