@@ -228,7 +228,7 @@ to define acceptable performance bounds, and thus the SLO is a contract between
 the end-users and engineers themselves. Instead of thinking about observability
 as the ability to 'explore unknown unknowns' or 'quickly reduce search space
 during incidents', we can begin to think of it as a way to define and iterate
-on SLI's and use those to formalize SLO's with each other, setting and
+on SLIs and use those to formalize SLOs with each other, setting and
 communicating expectations between apps and servers, transactions and
 resources, end-users and engineers, managers and employees, teams and
 organizations. The SLO becomes a mutually agreed upon instrument for talking
