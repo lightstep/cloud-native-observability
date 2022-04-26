@@ -58,7 +58,7 @@ understand how changes to other parts of the system affect theirs?
 
 The inverse of this is also true; since async dispatch causes combinatorial
 growth, batching causes context collapse as multiple logical transactions fold
-into one. Batching is one of the most common ways to reduce the *resource*
+into one. Batching is one of the most common ways to reduce the _resource_
 footprint under heavy transactional load, but as soon as transactions are
 batched, a trace-per-transaction model breaks down. This modeling issue with
 "coalescing effects" has been a noted problem since the original Dapper tracing
@@ -95,7 +95,7 @@ granularities: a mutex lock is a resource, CPU cycles are a resource, a
 microservice is a resource, a Kafka queue is a resource, and even an AWS quota
 can be thought of as a resource.
 
-Crucially, resources are *finite*: you can peg a CPU, you can run out of
+Crucially, resources are _finite_: you can peg a CPU, you can run out of
 memory, and you can flood a Kafka queue. As anyone who's observed production
 software can attest, resource exhaustion can get very ugly very quickly for the
 transactions that are queueing up and/or failing as a result. We know these
@@ -116,7 +116,7 @@ transactions and resources.[^reliabilitySidebar]
 
 Finally we come to the engineers. For most readers here, "we're talking about you."
 
-Engineers care about their end-users, and thus they certainly *care* about
+Engineers care about their end-users, and thus they certainly _care_ about
 transactions. That being said, _caring_ about something is different than
 _controlling_ something: engineers cannot and **should not** directly control
 the behavior of individual transactions, as nothing could be less scalable.
@@ -124,15 +124,21 @@ the behavior of individual transactions, as nothing could be less scalable.
 
 ## Engineers and End-Users: The Great Tragedy
 
-And this brings us to the tragic relationship of well-meaning engineers and the end-users that depend on their cloud-native software application!
+And this brings us to the tragic relationship of well-meaning engineers and the
+end-users that depend on their cloud-native software application!
 
 It's like this:
 
 1. **End-users** only care about the **transactions**,
 1. **Engineers** care about their **end-users**,
-1. ... but engineers can only _control_ their **resources** – not the transactions that flow through them.
+1. ... but engineers can only _control_ their **resources** – not the
+   transactions that flow through them.
 
-This is why we see engineers who care deeply about end-users spend their time staring at dashboards showing CPU usage and pod restart rates. Observability's challenge is to not only help engineers understand transactions and the end-user experience, but to automate the extremely challenging task of understanding how those transactions and the many layers of resources interact.
+This is why we see engineers who care deeply about end-users spend their time
+staring at dashboards showing CPU usage and pod restart rates. Observability's
+challenge is to not only help engineers understand transactions and the
+end-user experience, but to automate the extremely challenging task of
+understanding how those transactions and the many layers of resources interact.
 
 ## Resources and Transactions: The Great Duality
 
