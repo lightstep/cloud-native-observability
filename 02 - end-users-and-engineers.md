@@ -28,7 +28,7 @@ these transactions are not independent: they commingle and interfere with one
 another as they consume shared resources like databases, queueing systems (like
 Kafka), and even in the network itself.
 
-The work the transactions do can be modeled at many different granularities:
+The work the transactions do can be modeled at many different levels of detail:
 one could reasonably describe transactions in terms of nested [OSI Layer
 7](https://en.wikipedia.org/wiki/OSI_model#Layer_7:_Application_layer) HTTP
 calls, as function calls, or even as individual CPU instructions. All of these
@@ -90,10 +90,10 @@ As these distributed transactions hop from service to service, enter and exit
 caches, make system calls, and generally do work, they consume _resources_.
 Resources are nearly always _shared_ across multiple transactions, both over
 time (i.e., in serial) and/or concurrently (i.e., in parallel). As with
-transactions above, resources also can be modeled at many different
-granularities: a mutex lock is a resource, CPU cycles are a resource, a
-microservice is a resource, a Kafka queue is a resource, and even an AWS quota
-can be thought of as a resource.
+transactions above, resources also can be modeled at many different levels of
+detail: a mutex lock is a resource, CPU cycles are a resource, a microservice
+is a resource, a Kafka queue is a resource, and even an AWS quota can be
+thought of as a resource.
 
 Crucially, resources are _finite_: you can peg a CPU, you can run out of
 memory, and you can flood a Kafka queue. As anyone who's observed production
