@@ -7,7 +7,7 @@
 Cloud-native software applications ultimately exist **to serve their
 end-users.** This is why all engineers – or at least all _good_ engineers
 – obsess over the quality of their end-users' experiences with that software.
-These end-users do _not_ care about kubernetes, they do _not_ care about
+These end-users do _not_ care about Kubernetes, they do _not_ care about
 microservices, and they do _not_ care about observability; rather, they care
 that the application does its job, quickly and without getting in the way. The
 end-users don't care about software, they care about what the software is doing
