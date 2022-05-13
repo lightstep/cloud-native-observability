@@ -12,7 +12,7 @@ Observability, then, isn't simply defined by the desired end state of
 "understanding a system by its outputs" (because there are no systems that can
 be controlled otherwise; a system without output is one that might as well not
 exist) -- it's a combination of tools and techniques, workflows and products,
-bound together with a shared language of SLI's and SLO's.
+bound together with a shared language of SLIs and SLOs.
 
 The building blocks of observability are pretty straightforward in this model --
 telemetry, persistence, and workflows; Each building on the other. Telemetry is
@@ -22,7 +22,7 @@ and make sense of it. Let's look deeper into each, starting with telemetry!
 
 ## Telemetry
 
-In the [prior chapter](./02%20-%20customers-and-engineers.md), we discussed
+In the [prior chapter](./02%20-%20end-users-and-engineers.md), we discussed
 three different telemetry signals that can be emitted by transactions and
 resources. These signals -- logs, metrics, and traces -- are sometimes referred
 to as the "three pillars" of observability. However, this is a misnomer borne

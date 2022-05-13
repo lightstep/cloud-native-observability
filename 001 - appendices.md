@@ -14,7 +14,7 @@ spot' of resolution to make it easy enough to understand the overall state of
 transaction and resource health in aggregate, while preserving enough resolution
 to 'zoom in' to a single fault (or a group of like faults) with sufficient
 metadata to help operators understand why that fault is happening. This is
-roughly what you need in order to set and monitor SLO's, or to generate
+roughly what you need in order to set and monitor SLOs, or to generate
 hypotheses for further debugging.
 
 As a specific example, profiling is a useful way to inspect line or

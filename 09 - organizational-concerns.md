@@ -3,7 +3,7 @@
 # Organizational Concerns of Observability
 
 The previous chapters have more or less spelled out a vision of a new form of
-observability; One that is built around new primitives, like SLO's, and
+observability; One that is built around new primitives, like SLOs, and
 supported by centralized, multi-telemetry-aware platforms, built on open source
 observability libraries. We understand this vision might be a hard sell -- after
 all, it doesn't really exist in one place, anywhere.

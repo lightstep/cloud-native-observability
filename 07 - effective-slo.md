@@ -1,16 +1,16 @@
 ![Chapter 7 - Effective SLOs](./img/ch7_header.png)
 
-# Effective SLO's and You
+# Effective SLOs and You
 
 There's a lot of ways to communicate reliability, but the SLO is the way that
-'fits' into cloud-native observability. An artifact of the SRE Book, SLO's are
+'fits' into cloud-native observability. An artifact of the SRE Book, SLOs are
 the simple and sane way to quantify things that are usually extremely difficult
 to quantify. That doesn't mean they're _easy_, but they're essential because
 they firmly orient everyone on your team around end-user experience, regardless
 of who that end-user is.
 
 What makes an effective SLO, though? Like, a _really_ effective SLO? The
-association of SLO's with engineering teams and SRE practitioners has,
+association of SLOs with engineering teams and SRE practitioners has,
 possibly unsurprisingly, made them feel somewhat unapproachable to people
 outside those spheres. In this section, we'll discuss not how to make an SLO,
 but how to use them as bridges between different parts of a business and use
@@ -23,7 +23,7 @@ The concept of 'data-driven' organizations has become rather en vogue over the
 past years. Driven in no small part by a bunch of businesses selling you data
 shovels, we're encouraged to collect and quantify increasingly fine-grained data
 about everything that happens in the course of doing business. Contacts with
-customers, logins and logouts, session lengths, what links people click in
+end-users, logins and logouts, session lengths, what links people click in
 email, who downloads reports or responds to targeted advertising, how often
 someone waits before asking for help, etc. This data obsession has also turned
 inwards, as companies track ever finer details of their development, marketing,
@@ -39,7 +39,7 @@ In fairness, there's a legitimate need to understand what's going on in the
 workplace, in order to better allocate and assign resources (like money) and
 people (like... people) to projects and initiatives.
 
-Let's compare that, then, to how we report on reliability to the customers of a
+Let's compare that, then, to how we report on reliability to the end-users of a
 service. It looks a lot like this:
 
 | Service Name | Status |
@@ -58,7 +58,7 @@ oft-repeated, possibly apocryphal, anecdote that marking certain AWS services as
 created equal, after all, and if nobody was impacted (that you know of) by an
 issue, well, did it really ever happen?
 
-SLO's avoid this trap by being directly tied to specific customer experiences
+SLOs avoid this trap by being directly tied to specific end-user experiences
 and communicating _expected_ availability ahead of time. This is something that
 everyone should understand; KPIs, OKRs, these all have built-in 'pressure
 relief' valves that state "hey this is the goal, but we don't expect it to be
@@ -74,10 +74,10 @@ expressed as an SLO, and those SLOs (or aggregations of a group of them) should
 be the primary way reliability is communicated outward from engineering teams
 to the rest of the organization, and to your end-users directly.
 
-Expressing reliability via SLO's as the default is rather revolutionary from a
+Expressing reliability via SLOs as the default is rather revolutionary from a
 mindset perspective. You quickly realize that you were defaulting to a binary
 model of 'up' or 'down', because that's the only real language you had to
-communicate performance. SLO's break this, as they introduce not only the
+communicate performance. SLOs break this, as they introduce not only the
 concept of safe failure, but also _acceptable_ failure. This acceptable failure
 is where you can improve and iterate -- pushing new features, or cleaning up
 technical debt. It's also an affirmative signal to the rest of the organization
@@ -92,7 +92,7 @@ can move towards an SLO-based understanding of reliability, then we can apply
 the same level of psychological safety that these mantras try to instill to
 people's feelings about our software and products themselves.
 
-SLO's aren't just a way to keep track of how well you're meeting end user needs,
+SLOs aren't just a way to keep track of how well you're meeting end user needs,
 they're a radically transparent way to set boundaries and expectations about the
 reliability of your software, your team, and your organization as a whole.
 

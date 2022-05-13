@@ -12,16 +12,16 @@ overview of cloud-native observability.
 
 **Why is that important?** Despite untold millions of marketing dollars spent in
 and around observability (or maybe _because_ of the untold millions of marketing
-dollars spent), cloud-native observability practice today is often shallow,
-siloed, or both. It doesn't need to be that way.
+dollars spent), cloud-native observability practice today is often inefficient,
+ineffective, or both. It doesn't need to be that way.
 
-**Who is this for?** Observability practitioners, SRE's and DevOps engineers,
+**Who is this for?** Observability practitioners, SREs and DevOps engineers,
 end-users of observability systems, and anyone involved in building and running
 cloud-native software at scale.
 
 **How can you help?** You can contribute in several ways --
 
-* Adding your stories and learnings to an appendix.
+* Adding your stories and learnings to [the "Real World Examples" directory](./real_world_examples/README.md)
 * Helping refine and shape this repository through
   [contributions](./CONTRIBUTING.md)
 * Tackling a [good first
@@ -29,6 +29,20 @@ cloud-native software at scale.
 * Giving us a star and sharing the repository!
 
 You can also view the [release cadence](./CONTRIBUTING.md#release-cadence)
+
+This project is in a _draft_ state. We are actively refining, polishing, and
+iterating on the content.
+
+## What We're Looking For
+
+Currently, we would appreciate feedback (either via issues or pull requests) in
+the following areas:
+
+* Overall structure and flow of the document.
+* Overall comprehension of the text/themes.
+* Un-defined, under-defined, or over-defined themes/concepts/terms.
+* General feedback on the ideas.
+* Illustrations and explanatory diagrams.
 
 ---
 
@@ -43,10 +57,12 @@ You can also view the [release cadence](./CONTRIBUTING.md#release-cadence)
 * [Introduction](<./01 - intro.md>)
   * [What's the point of software development, anyway?](<./01 - intro.md#whats-the-point-of-software-development-anyway>)
   * [Why Cloud-Native Matters](<./01 - intro.md#why-cloud-native-matters>)
-* [Customers and Engineers, Transactions and Resources](<./02 - customers-and-engineers.md>)
-  * [Transactions](<./02 - customers-and-engineers.md#transactions>)
-  * [Resources](<./02 - customers-and-engineers.md#resources>)
-  * [SLI's and SLO's](<./02 - customers-and-engineers.md#slis-and-slos>)
+* [End-users and Engineers, Transactions and Resources](<./02 - end-users-and-engineers.md>)
+  * [End-users](<./02 - end-users-and-engineers.md#end-users>)
+  * [Engineers](<./02 - end-users-and-engineers.md#engineers>)
+  * [Transactions](<./02 - end-users-and-engineers.md#transactions>)
+  * [Resources](<./02 - end-users-and-engineers.md#resources>)
+  * [SLIs and SLOs](<./02 - end-users-and-engineers.md#slis-and-slos>)
 * [The Anatomy of Observability](<./03 - anatomy-of-observability.md>)
   * [Telemetry](<./03 - anatomy-of-observability.md#telemetry>)
   * [Persistence](<./03 - anatomy-of-observability.md#persistence>)
@@ -57,12 +73,12 @@ You can also view the [release cadence](./CONTRIBUTING.md#release-cadence)
 * [Effective Monitoring](<./05 - effective-monitoring.md>)
   * [Effective Dashboards](<./05 - effective-monitoring.md#effective-dashboards>)
   * [Effective Alerting](<./05 - effective-monitoring.md#effective-alerting>)
-  * [Fantastic SLO's and Where To Find Them](<./05 - effective-monitoring.md#fantastic-slos-and-where-to-find-them>)
+  * [Fantastic SLOs and Where To Find Them](<./05 - effective-monitoring.md#fantastic-slos-and-where-to-find-them>)
 * [Effective Investigation](<./06 - effective-investigation.md>)
   * [Context -- What Ties Everything Together](<./06 - effective-investigation.md#context----what-ties-everything-together>)
   * [Guided Analysis vs. Data Exploration](<./06 - effective-investigation.md#guided-analysis-vs.-data-exploration>)
   * [Tagging and Cardinality](<./06 - effective-investigation.md#tagging-and-cardinality>)
-* [Effective SLO's](<./07 - effective-slo.md>)
+* [Effective SLOs](<./07 - effective-slo.md>)
   * [Counting the Uncountable](<./07 - effective-slo.md#counting-the-uncountable>)
   * [Pushing the Envelope](<./07 - effective-slo.md#pushing-the-envelope>)
 * [Telemetry ROI -- The Elephant in the Room](<./08 - telemetry-roi.md>)
@@ -84,8 +100,9 @@ for more.
 
 ## Special Thanks
 
-This guide is made possible thanks to [Lightstep](https://lightstep.com). We'd
-love for you to check out our report on [how OpenTelemetry drives the future of
+This guide is made possible thanks to salary-paying by [Lightstep](https://lightstep.com).
+
+We'd love for you to check out our report on [how OpenTelemetry drives the future of
 observability](http://go.lightstep.com/register-oreilly-future-of-observability.html)
 as a companion to this whitepaper.
 
