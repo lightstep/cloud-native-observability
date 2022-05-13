@@ -28,10 +28,8 @@ cloud-native software at scale.
   issue](https://github.com/lightstep/cloud-native-observability/labels/good%20first%20issue)
 * Giving us a star and sharing the repository!
 
-You can also view the [release cadence](./CONTRIBUTING.md#release-cadence)
-
-This project is in a _draft_ state. We are actively refining, polishing, and
-iterating on the content.
+You can also view the [release cadence](./CONTRIBUTING.md#release-cadence). We
+plan to continue iterating and refining this content throughout 2022.
 
 ## What We're Looking For
 
@@ -53,7 +51,6 @@ the following areas:
 
 * [README](./README.md)
 * [Foreword](<./00 - foreword.md>)
-* [Glossary](<./000 - glossary.md>)
 * [Introduction](<./01 - intro.md>)
   * [What's the point of software development, anyway?](<./01 - intro.md#whats-the-point-of-software-development-anyway>)
   * [Why Cloud-Native Matters](<./01 - intro.md#why-cloud-native-matters>)
@@ -89,7 +86,7 @@ the following areas:
   * [Combating the 'Three Pillars' ideology](<./09 - organizational-concerns.md#combating-the-three-pillars-ideology>)
   * [Build, Buy, and Everything Inbetween](<./09 - organizational-concerns.md#build-buy-and-everything-between>)
   * [Organizing Effective Observability Through Centralization](<./09 - organizational-concerns.md#organizing-effective-observability-through-centralization>)
-
+* [Glossary](<./10 - glossary.md>)
 <!-- cspell:enable -->
 ---
 

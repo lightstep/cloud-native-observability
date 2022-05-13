@@ -56,3 +56,8 @@ gantt
     v0.4 :rs3, after r2, 5d
     v2023 :rs4, 2023-01-01, 5d
 ```
+
+## Release Process
+
+Please ensure that `npm run pdf` has been executed and the pdf committed before
+release.
