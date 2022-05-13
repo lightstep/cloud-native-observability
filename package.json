@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "markdownlint *.md",
-    "spellcheck": "cspell *.md"
+    "spellcheck": "cspell *.md",
+    "pdf": "cat [0-9]*.md | md-to-pdf > cloud_native_observability.pdf"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
     "cspell": "^5.18.5",
     "markdownlint": "^0.25.1",
     "markdownlint-cli": "^0.31.1"
+  },
+  "dependencies": {
+    "md-to-pdf": "^5.1.0"
   }
 }
