@@ -99,8 +99,8 @@ for more.
 
 This guide is made possible thanks to salary-paying by [Lightstep](https://lightstep.com).
 
-We'd love for you to check out our report on [how OpenTelemetry drives the future of
-observability](http://go.lightstep.com/register-oreilly-future-of-observability.html)
+We'd love for you to check out our report on [how OpenTelemetry drives the
+future of observability](http://go.lightstep.com/register-oreilly-future-of-observability.html)
 as a companion to this whitepaper.
 
 ---

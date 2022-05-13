@@ -36,7 +36,7 @@ To set up the checks, please consult the following instructions:
 
 This chart is intended to give a rough release cadence for iterations for the
 rest of the year.
-
+<!-- cspell:disable -->
 ```mermaid
 gantt
     title Cloud-Native Observability Release Plan
@@ -56,7 +56,7 @@ gantt
     v0.4 :rs3, after r2, 5d
     v2023 :rs4, 2023-01-01, 5d
 ```
-
+<!-- cspell:enable -->
 ## Release Process
 
 Please ensure that `npm run pdf` has been executed and the pdf committed before
