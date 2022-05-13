@@ -42,17 +42,17 @@ gantt
     title Cloud-Native Observability Release Plan
     dateFormat  YYYY-MM-DD
     section Feedback
-    v0 Feedback :f1, 2022-03-01, 30d
-    v1 Feedback :f2, after rs1, 60d
-    v2 Feedback :f3, after rs2, 60d
-    v3 Feedback :f4, after rs3, 60d
+    Feedback Round :f1, 2022-03-01, 60d
+    Feedback Round :f2, after rs1, 60d
+    Feedback Round :f3, after rs2, 60d
+    Feedback Round :f4, after rs3, 60d
     section Refinement
-    Consolidate v1 Feedback :r1, after f2, 10d
-    Consolidate v2 Feedback :r2, after f3, 10d
-    Consolidate v3 Feedback :r3, after f4, 45d
+    Consolidate Feedback :r1, after f2, 10d
+    Consolidate Feedback :r2, after f3, 10d
+    Consolidate Feedback :r3, 2022-12-01, 30d
     section Release
-    v1 :rs1, 2022-04-01, 5d
-    v2 :rs2, after r1, 5d
-    v3 :rs3, after r2, 5d
+    v0.2 :rs1, 2022-05-13, 5d
+    v0.3 :rs2, after r1, 5d
+    v0.4 :rs3, after r2, 5d
     v2023 :rs4, 2023-01-01, 5d
 ```
