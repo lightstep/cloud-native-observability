@@ -15,7 +15,7 @@ and around observability (or maybe _because_ of the untold millions of marketing
 dollars spent), cloud-native observability practice today is often inefficient,
 ineffective, or both. It doesn't need to be that way.
 
-**Who is this for?** Observability practitioners, SREs and DevOps engineers,
+**Who is this for?** Observability and DevOps practitioners, SREs,
 end-users of observability systems, and anyone involved in building and running
 cloud-native software at scale.
 
@@ -28,8 +28,7 @@ cloud-native software at scale.
   issue](https://github.com/lightstep/cloud-native-observability/labels/good%20first%20issue)
 * Giving us a star and sharing the repository!
 
-You can also view the [release cadence](./CONTRIBUTING.md#release-cadence). We
-plan to continue iterating and refining this content throughout 2022.
+You can also view the [project milestones](./CONTRIBUTING.md#milestones).
 
 ## What We're Looking For
 

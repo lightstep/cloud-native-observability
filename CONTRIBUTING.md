@@ -32,32 +32,29 @@ To set up the checks, please consult the following instructions:
 2. Before making a PR, ensure `npm run lint` and `npm run spellcheck` both
    clear.
 
-## Release Cadence
+## Milestones
 
-This chart is intended to give a rough release cadence for iterations for the
-rest of the year.
-<!-- cspell:disable -->
-```mermaid
-gantt
-    title Cloud-Native Observability Release Plan
-    dateFormat  YYYY-MM-DD
-    section Feedback
-    Feedback Round :f1, 2022-03-01, 60d
-    Feedback Round :f2, after rs1, 60d
-    Feedback Round :f3, after rs2, 60d
-    Feedback Round :f4, after rs3, 60d
-    section Refinement
-    Consolidate Feedback :r1, after f2, 10d
-    Consolidate Feedback :r2, after f3, 10d
-    Consolidate Feedback :r3, 2022-12-01, 30d
-    section Release
-    v0.2 :rs1, 2022-05-13, 5d
-    v0.3 :rs2, after r1, 5d
-    v0.4 :rs3, after r2, 5d
-    v2023 :rs4, 2023-01-01, 5d
-```
-<!-- cspell:enable -->
-## Release Process
+We expect this repository to undergo relatively continuous revision, but with
+the majority of the content to stabilize by the end of 2022. With that in mind,
+the following milestones are designed to communicate what major areas of work
+are yet to be completed.
+
+ <!-- markdownlint-disable -->
+- [ ] Primary Content Review
+  - [x] Chapter 0-1
+  - [x] Chapter 2
+  - [ ] Chapter 3
+  - [ ] Chapter 4
+  - [ ] Chapter 5
+  - [ ] Chapter 6
+  - [ ] Chapter 7
+  - [ ] Chapter 8
+  - [ ] Chapter 9
+- [ ] Diagrams and Illustrations
+- [ ] Case Studies
+- [ ] Publication to HTML/PDF/ePub
+ <!-- markdownlint-enable -->
+## Creating a tagged release
 
 Please ensure that `npm run pdf` has been executed and the pdf committed before
 release.
