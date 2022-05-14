@@ -1,6 +1,6 @@
 # Your Stories
 
-To better learn and improve this project, we're asking _you_ to tell us how
+To relate this project to real-world examples, we're asking _you_ to tell us how
 observability has shaped and impacted your organization or team. Are you
 adopting cloud-native observability practices? What's went well, and what
 hasn't? What are your hopes for the future of observability, and what do you
