@@ -31,3 +31,30 @@ To set up the checks, please consult the following instructions:
    necessary tools.
 2. Before making a PR, ensure `npm run lint` and `npm run spellcheck` both
    clear.
+
+## Milestones
+
+We expect this repository to undergo relatively continuous revision, but with
+the majority of the content to stabilize by the end of 2022. With that in mind,
+the following milestones are designed to communicate what major areas of work
+are yet to be completed.
+
+ <!-- markdownlint-disable -->
+- [ ] Primary Content Review
+  - [x] Chapter 0-1
+  - [x] Chapter 2
+  - [ ] Chapter 3
+  - [ ] Chapter 4
+  - [ ] Chapter 5
+  - [ ] Chapter 6
+  - [ ] Chapter 7
+  - [ ] Chapter 8
+  - [ ] Chapter 9
+- [ ] Diagrams and Illustrations
+- [ ] Case Studies
+- [ ] Publication to HTML/PDF/ePub
+ <!-- markdownlint-enable -->
+## Creating a tagged release
+
+Please ensure that `npm run pdf` has been executed and the pdf committed before
+release.

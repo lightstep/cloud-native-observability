@@ -2,6 +2,11 @@
 
 # End-users and Engineers, Transactions and Resources
 
+Observability must be more than an arcane set of tools wielded by experts or
+the desire to view a bunch of system diagnostics. Our model of observability must
+reflect the human needs of the end-users and engineers involved in cloud-native
+systems, and reflect the transactions and resources that comprise those systems.
+
 ## End-users
 
 Cloud-native software applications ultimately exist **to serve their

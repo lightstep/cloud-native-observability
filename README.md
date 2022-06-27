@@ -15,7 +15,7 @@ and around observability (or maybe _because_ of the untold millions of marketing
 dollars spent), cloud-native observability practice today is often inefficient,
 ineffective, or both. It doesn't need to be that way.
 
-**Who is this for?** Observability practitioners, SREs and DevOps engineers,
+**Who is this for?** Observability and DevOps practitioners, SREs,
 end-users of observability systems, and anyone involved in building and running
 cloud-native software at scale.
 
@@ -28,8 +28,7 @@ cloud-native software at scale.
   issue](https://github.com/lightstep/cloud-native-observability/labels/good%20first%20issue)
 * Giving us a star and sharing the repository!
 
-This project is in a _draft_ state. We are actively refining, polishing, and
-iterating on the content.
+You can also view the [project milestones](./CONTRIBUTING.md#milestones).
 
 ## What We're Looking For
 
@@ -51,7 +50,6 @@ the following areas:
 
 * [README](./README.md)
 * [Foreword](<./00 - foreword.md>)
-* [Glossary](<./000 - glossary.md>)
 * [Introduction](<./01 - intro.md>)
   * [What's the point of software development, anyway?](<./01 - intro.md#whats-the-point-of-software-development-anyway>)
   * [Why Cloud-Native Matters](<./01 - intro.md#why-cloud-native-matters>)
@@ -87,7 +85,7 @@ the following areas:
   * [Combating the 'Three Pillars' ideology](<./09 - organizational-concerns.md#combating-the-three-pillars-ideology>)
   * [Build, Buy, and Everything Inbetween](<./09 - organizational-concerns.md#build-buy-and-everything-between>)
   * [Organizing Effective Observability Through Centralization](<./09 - organizational-concerns.md#organizing-effective-observability-through-centralization>)
-
+* [Glossary](<./10 - glossary.md>)
 <!-- cspell:enable -->
 ---
 
@@ -99,6 +97,10 @@ for more.
 ## Special Thanks
 
 This guide is made possible thanks to salary-paying by [Lightstep](https://lightstep.com).
+
+We'd love for you to check out our report on [how OpenTelemetry drives the
+future of observability](http://go.lightstep.com/register-oreilly-future-of-observability.html)
+as a companion to this whitepaper.
 
 ---
 
