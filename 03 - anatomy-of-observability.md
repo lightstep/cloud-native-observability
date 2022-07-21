@@ -91,7 +91,7 @@ you maintain or build occur within Microsoft Excel.
 The hard truth is that any observability practice is bound by the least
 observable component of any of its critical paths. What does it mean to be
 'observable'? Broadly, to have accurate, correct, and descriptive telemetry data
-produced reliability and quickly by your components. As we'll see, extant
+produced reliably and quickly by your components. As we'll see, extant
 telemetry signals tend to fail at multiple parts of this test. As to why we
 still _use_ these signals, well, look at the heading -- momentum. It's hard to
 justify replacing your telemetry for anything other than a massive perceived
